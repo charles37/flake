@@ -24,6 +24,7 @@
   
   home.packages = with pkgs; [
     htop
+    alacritty
   ];
 
   home.file = {
