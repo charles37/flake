@@ -9,10 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
   };
 
-  outputs = { self, nixpkgs, home-manager }: 
+  outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware }: 
     let 
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -22,25 +23,16 @@
       lib = nixpkgs.lib;
 
     in {
-      nixosConfigurations = {
-        marin = lib.nixosSystem {
-          inherit system;
-          modules = [ 
-            ./configuration.nix 
-            ./hardware-configuration.nix 
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.ben = {
-                imports = [ ./home.nix ];
-              };
-            }
-          ];
-        };
-      };
+      nixosConfigurations = (
+        import ./hosts {
+          inherit (nixpkgs) lib;
+          inherit inputs nixpkgs home-manager nixos-hardware;
+        }
+     );
 
-      # Home Manager seperate module run nix build .#hmConfig.ben.activationPackage
-      # then ./result/activate
+# Home Manager seperate module run nix build .#hmConfig.ben.activationPackage
+# then ./result/activate
+
 #      hmConfig = {
 #        ben = home-manager.lib.homeManagerConfiguration {
 #          pkgs = nixpkgs.legacyPackages.${system};

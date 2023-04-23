@@ -121,7 +121,6 @@ in
     vimPlugins.vim-nix
     pulseaudio
     pavucontrol
-    git
     wget
   ];
   
