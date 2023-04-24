@@ -1,5 +1,6 @@
 #!/run/current-system/sw/bin/bash
 
+
 # Check for the required argument
 if [ "$#" -ne 1 ]; then
   echo "Usage: $0 <commit_message>"
