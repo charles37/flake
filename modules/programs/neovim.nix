@@ -30,6 +30,7 @@
         type = "lua";
         config = builtins.readFile(./neovim/after/plugin/telescope.lua);
       }
+      rose-pine
     ]; 
   };  
 
