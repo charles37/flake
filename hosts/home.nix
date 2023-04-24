@@ -1,5 +1,9 @@
 { config, lib, pkgs, system, ... }:
 let
+  fix-and-rebuild = (pkgs.writeShellScriptBin "frb" ''
+      #!/bin/sh
+      ${pkgs.bash}/bin/bash ${toString ./.}/scripts/frb "''${1}"
+    '');
   generic = import ../modules/programs/generic.nix;
   signal-desktop-alt = generic {
     pname = "signal-desktop";
@@ -15,6 +19,7 @@ let
       systemd libnotify libdbusmenu libpulseaudio xdg-utils wayland;
     inherit (pkgs.xorg) libX11 libXi libXcursor libXdamage libXrandr
       libXcomposite libXext libXfixes libXrender libXtst libXScrnSaver;
+
   };
 in
 {
@@ -42,6 +47,7 @@ in
       htop
       alacritty
       signal-desktop-alt
+      fix-and-rebuild
     ];
   };
 
