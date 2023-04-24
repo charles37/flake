@@ -133,6 +133,7 @@ in
     wget
     ripgrep
     ssh-askpass-fullscreen
+    deno
   ];
   
   # Some programs need SUID wrappers, can be configured further or are
