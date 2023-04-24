@@ -25,6 +25,11 @@
         type = "lua";
         config = builtins.readFile(./neovim/lua/ben/packer.lua);
       }
+      {
+        plugin = telescope-nvim;
+        type = "lua";
+        config = builtins.readFile(./neovim/after/plugin/telescope.lua);
+      }
     ]; 
   };  
 
