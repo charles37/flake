@@ -7,14 +7,14 @@
 let
   user = "ben";
 
-  nixpkgsUnstable = import (builtins.fetchTarball {
-    # Descriptive name to make the store path easier to identify
-    name = "nixos-unstable-2023-04-24";
-    # Commit hash for nixos-unstable as of 2018-09-12
-    url = "https://github.com/nixos/nixpkgs/archive/2362848adf8def2866fabbffc50462e929d7fffb.tar.gz";
-    # Hash obtained using `nix-prefetch-url --unpack <url>`
-    sha256 = "0wjr874z2y3hc69slaa7d9cw7rj47r1vmc1ml7dw512jld23pn3p";
-  }) {};
+  #nixpkgsUnstable = import (builtins.fetchTarball {
+  #  # Descriptive name to make the store path easier to identify
+  #  name = "nixos-unstable-2023-04-24";
+  #  # Commit hash for nixos-unstable as of 2018-09-12
+  #  url = "https://github.com/nixos/nixpkgs/archive/2362848adf8def2866fabbffc50462e929d7fffb.tar.gz";
+  #  # Hash obtained using `nix-prefetch-url --unpack <url>`
+  #  sha256 = "0wjr874z2y3hc69slaa7d9cw7rj47r1vmc1ml7dw512jld23pn3p";
+  #}) {};
 in
 
 {
@@ -131,7 +131,6 @@ in
     pulseaudio
     pavucontrol
     wget
-    nixpkgsUnstable.signal-desktop
   ];
   
   # Some programs need SUID wrappers, can be configured further or are
