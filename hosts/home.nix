@@ -1,19 +1,22 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, system, ... }:
 let
-  generic = import ./generic.nix;
-  signal-desktop-alt = generic {
-    pname = "signal-desktop";
-    dir = "Signal";
-    version = "5.33.0";
-    hash = "sha256-QobRd2KjbsaJOxX9fL97NjK8FpebwBtfr0Q2O/cK4O4=";
-    inherit (pkgs) stdenv fetchurl;
-    inherit (pkgs.buildPackages) autoPatchelfHook dpkg wrapGAppsHook makeWrapper;
-    inherit (pkgs) nixosTests gtk3 atk at-spi2-atk cairo pango gdk-pixbuf glib freetype
-      fontconfig dbus libX11 xorg libXi libXcursor libXdamage libXrandr
-      libXcomposite libXext libXfixes libXrender libXtst libXScrnSaver nss
-      nspr alsa-lib cups expat libuuid at-spi2-core libappindicator-gtk3 mesa
-      systemd libnotify libdbusmenu libpulseaudio xdg-utils wayland;
-  };
+  # generic = import ../modules/programs/generic.nix;
+  #system = "x86_64-linux";
+  #signal-desktop-alt = generic {
+  #  pname = "signal-desktop";
+  #  dir = "Signal";
+  #  version = "5.33.0";
+  #  hash = "sha256-QobRd2KjbsaJOxX9fL97NjK8FpebwBtfr0Q2O/cK4O4=";
+  #  inherit lib;
+  #  inherit (pkgs) stdenv fetchurl;
+  #  inherit (pkgs.buildPackages) autoPatchelfHook dpkg wrapGAppsHook makeWrapper;
+  #  inherit (pkgs) nixosTests gtk3 atk at-spi2-atk cairo pango gdk-pixbuf glib freetype
+  #    fontconfig dbus nss
+  #    nspr alsa-lib cups expat libuuid at-spi2-core libappindicator-gtk3 mesa
+  #    systemd libnotify libdbusmenu libpulseaudio xdg-utils wayland xorg;
+  #  inherit (pkgs.xorg) libX11 libXi libXcursor libXdamage libXrandr
+  #    libXcomposite libXext libXfixes libXrender libXtst libXScrnSaver;
+  #};
 in
 {
   imports = 
@@ -39,7 +42,6 @@ in
     packages = with pkgs; [
       htop
       alacritty
-      signal-desktop-alt
     ];
   };
 
