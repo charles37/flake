@@ -57,6 +57,11 @@ in
         type = "lua";
         config = builtins.readFile(./neovim/after/plugin/telescope.lua);
       }
+      {
+        plugin = rose-pine;
+        type = "lua";
+        config = builtins.readFile(./neovim/after/plugin/rose-pine.lua);
+      }
       rose-pine
       denops-vim
       askpass-vim
