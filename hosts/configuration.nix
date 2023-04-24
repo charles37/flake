@@ -132,7 +132,7 @@ in
     pavucontrol
     wget
     ripgrep
-    x11_ssh_askpass 
+    ssh-askpass-fullscreen
   ];
   
   # Some programs need SUID wrappers, can be configured further or are
