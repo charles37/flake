@@ -20,7 +20,11 @@
     '';
     plugins = with pkgs.vimPlugins; [
       vim-nix
-      packer-nvim
+      {
+        plugin = packer-nvim;
+        type = "lua";
+        config = builtins.readFile(./neovim/lua/ben/packer.lua);
+      }
     ]; 
   };  
 
