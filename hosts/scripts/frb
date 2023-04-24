@@ -25,6 +25,7 @@ git add .
 git commit -m "$commit_message"
 
 # Rebuild with root privileges
-SUDO_ASKPASS=$(command -v ssh-askpass) sudo -A nixos-rebuild switch --flake .#marin
+SUDO_ASKPASS=$(command -v x11-ssh-askpass) sudo -A nixos-rebuild switch --flake .#marin
+
 
 
