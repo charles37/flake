@@ -20,6 +20,7 @@
     '';
     plugins = with pkgs.vimPlugins; [
       vim-nix
+      packer-nvim
     ]; 
   };  
 
