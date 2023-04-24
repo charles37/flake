@@ -72,6 +72,7 @@ in
       picture-options = "zoom";
       picture-uri = "file://" + ../wallpapers/purple-anime-girl.jpg;
     };
+  };
 
   home.file = {
     ".config/alacritty/alacritty.yml".text = builtins.readFile(../modules/programs/alacritty/alacritty.yml);
