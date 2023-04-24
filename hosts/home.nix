@@ -29,6 +29,7 @@ in
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
 
+
   home = {
     username = "ben";
     homeDirectory = "/home/ben";
@@ -47,6 +48,7 @@ in
       htop
       alacritty
       signal-desktop-alt
+      x11_ssh_askpass 
       fix-and-rebuild
     ];
   };
