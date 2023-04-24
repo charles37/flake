@@ -132,6 +132,7 @@ in
     pavucontrol
     wget
     ripgrep
+    x11_ssh_askpass 
   ];
   
   # Some programs need SUID wrappers, can be configured further or are

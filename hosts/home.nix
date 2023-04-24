@@ -48,7 +48,6 @@ in
       htop
       alacritty
       signal-desktop-alt
-      x11_ssh_askpass 
       fix-and-rebuild
     ];
   };
