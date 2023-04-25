@@ -30,7 +30,8 @@ let
                   "#!${pkgs.deno}/bin/deno run --no-check --allow-env=ASKPASS_ADDRESS --allow-net=127.0.0.1"
     '';
   };
-in
+
+  in
 {
 
   xdg.configFile.nvim = {
@@ -62,7 +63,9 @@ in
         type = "lua";
         config = builtins.readFile(./neovim/after/plugin/rose-pine.lua);
       }
+      
       rose-pine
+
       denops-vim
       askpass-vim
     ];

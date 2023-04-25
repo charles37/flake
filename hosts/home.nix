@@ -70,7 +70,7 @@ in
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file://" + ../wallpapers/purple-anime-girl.jpg;
+      picture-uri = "file://" + ../wallpapers/purple-anime-girl.png;
     };
   };
 
