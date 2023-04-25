@@ -45,6 +45,7 @@ let
     extraConfig = ''
       set number relativenumber
       :luafile ./neovim/init.lua
+      :luafile ./neovim/after/plugin/colors.lua
     '';
     plugins = with pkgs.vimPlugins; [
       vim-nix
