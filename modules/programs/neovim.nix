@@ -54,7 +54,12 @@ in
         type = "lua";
         config = builtins.readFile(./neovim/after/plugin/undotree.lua);
       }
-
+      {
+        plugin = vim-fugitive;
+        type = "lua";
+        config = builtins.readFile(./neovim/after/plugin/fugitive.lua);
+      }
+      
       #{
       #  plugin = nvim-treesitter;
       #  type = "lua";
