@@ -21,7 +21,10 @@ in
     plugins = with pkgs.vimPlugins; [
       vim-nix
       rose-pine
-      (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.javascript p.nix p.haskell ]))
+      playground
+      harpoon
+     # (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.javascript p.nix p.haskell p.lua ]))
+     # pkgs.vimPlugins.nvim-treesitter.withAllGrammars
       {
         plugin = packer-nvim;
         type = "lua";
@@ -37,6 +40,13 @@ in
         type = "lua";
         config = builtins.readFile(./neovim/after/plugin/rose-pine.lua);
       }
+      {
+        plugin = nvim-treesitter;
+        type = "lua";
+        config = builtins.readFile(./neovim/after/plugin/treesitter.lua);
+      }
+
+
 
       #{
       #  plugin = nvim-treesitter;
