@@ -42,6 +42,8 @@ in
       vim-nix
       rose-pine
       playground
+      nvim-lspconfig
+      cmp-nvim-lsp
      # (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.javascript p.nix p.haskell p.lua ]))
      # pkgs.vimPlugins.nvim-treesitter.withAllGrammars
       {
