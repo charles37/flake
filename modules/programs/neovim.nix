@@ -1,6 +1,26 @@
 { pkgs, ... }:
 
 let
+  #nixpkgsUnstable = import (builtins.fetchTarball {
+  #  # Descriptive name to make the store path easier to identify
+  #  name = "nixos-unstable-2023-04-24";
+  #  # Commit hash for nixos-unstable as of 2018-09-12
+  #  url = "https://github.com/nixos/nixpkgs/archive/2362848adf8def2866fabbffc50462e929d7fffb.tar.gz";
+  #  # Hash obtained using `nix-prefetch-url --unpack <url>`
+  #  sha256 = "0wjr874z2y3hc69slaa7d9cw7rj47r1vmc1ml7dw512jld23pn3p";
+  #}) {};
+
+  lsp-zero-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "lsp-zero.nvim";
+    version = "2023-04-18";
+    src = pkgs.fetchFromGitHub {
+      owner = "VonHeikemen";
+      repo = "lsp-zero.nvim";
+      rev = "8f7436b5df998515d9e15073b16f1bd142c406f9";
+      sha256 = "06jdi7qg9nhqjb2isldndjkbn4z3jminhn7rp036bc2rp3r6l3iw";
+    };
+    meta.homepage = "https://github.com/VonHeikemen/lsp-zero.nvim/";
+  };
 
 in
 {
@@ -59,7 +79,11 @@ in
         type = "lua";
         config = builtins.readFile(./neovim/after/plugin/fugitive.lua);
       }
-      
+      {
+        plugin = lsp-zero-nvim;
+        type = "lua";
+        config = builtins.readFile(./neovim/after/plugin/lsp.lua);
+      }
       #{
       #  plugin = nvim-treesitter;
       #  type = "lua";
