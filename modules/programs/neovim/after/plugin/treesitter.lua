@@ -1,10 +1,10 @@
- vim.opt.runtimepath:append("../../parsers")
+ vim.opt.runtimepath:append("/home/ben/.config/nvim/parsers")
 
 require'nvim-treesitter.configs'.setup {
-  parser_install_dir = "../../parsers",
+  parser_install_dir = "/home/ben/.config/nvim/parsers",
 
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "lua", "javascript", "nix", "haskell", "vim", "vimdoc", "query" },
+  ensure_installed = { "c", "lua", "javascript", "nix", "haskell", "vim", "query" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,

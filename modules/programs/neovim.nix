@@ -22,7 +22,6 @@ in
       vim-nix
       rose-pine
       playground
-      harpoon
      # (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.javascript p.nix p.haskell p.lua ]))
      # pkgs.vimPlugins.nvim-treesitter.withAllGrammars
       {
@@ -45,8 +44,16 @@ in
         type = "lua";
         config = builtins.readFile(./neovim/after/plugin/treesitter.lua);
       }
-
-
+      {
+        plugin = harpoon;
+        type = "lua";
+        config = builtins.readFile(./neovim/after/plugin/harpoon.lua);
+      }
+      {
+        plugin = undotree;
+        type = "lua";
+        config = builtins.readFile(./neovim/after/plugin/undotree.lua);
+      }
 
       #{
       #  plugin = nvim-treesitter;
