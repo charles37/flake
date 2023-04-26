@@ -45,6 +45,10 @@ in
 
     stateVersion = "22.11";
     packages = with pkgs; [
+      haskell.compiler.ghc926
+      haskellPackages.cabal-install
+      haskellPackages.stack
+      haskellPackages.haskell-language-server
       rustup
       htop
       alacritty
