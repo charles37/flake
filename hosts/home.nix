@@ -45,7 +45,7 @@ in
 
     stateVersion = "22.11";
     packages = with pkgs; [
-      haskell.compiler.ghc926
+      haskell.compiler.ghc925
       haskellPackages.cabal-install
       haskellPackages.stack
       haskellPackages.haskell-language-server
