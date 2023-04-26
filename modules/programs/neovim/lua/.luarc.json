@@ -1,0 +1,32 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "Lua.workspace.library": [
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/__python3_dependencies",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/cmp-nvim-lsp",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/harpoon",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/lsp-zero.nvim",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/luasnip",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/nvim-cmp",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/nvim-lspconfig",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/nvim-treesitter",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/packer.nvim",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/playground",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/plenary.nvim",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/rose-pine",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/telescope.nvim",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/undotree",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/vim-fugitive",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/vim-nix",
+        "/home/ben/.config/nvim",
+        "/home/ben/.local/share/nvim/site",
+        "/home/ben/.local/share/nvim/site/pack/packer/start/packer.nvim",
+        "/nix/store/g1a27pnjyax6jvpa7q59d3z0ijqqm354-neovim-unwrapped-0.8.1/share/nvim/runtime",
+        "/nix/store/g1a27pnjyax6jvpa7q59d3z0ijqqm354-neovim-unwrapped-0.8.1/share/nvim/runtime/pack/dist/opt/matchit",
+        "/nix/store/g1a27pnjyax6jvpa7q59d3z0ijqqm354-neovim-unwrapped-0.8.1/lib/nvim",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/cmp-nvim-lsp/after",
+        "/nix/store/l6247f0gx5y94a24b72pw9rlramjghss-vim-pack-dir/pack/myNeovimPackages/start/playground/after",
+        "/home/ben/.config/nvim/after",
+        "${3rd}/luassert/library"
+    ]
+}

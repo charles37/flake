@@ -10,7 +10,7 @@ let
   #  sha256 = "0wjr874z2y3hc69slaa7d9cw7rj47r1vmc1ml7dw512jld23pn3p";
   #}) {};
 
-  lsp-zero-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  my-lsp-zero-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
     pname = "lsp-zero.nvim";
     version = "2023-04-18";
     src = pkgs.fetchFromGitHub {
@@ -20,6 +20,31 @@ let
       sha256 = "06jdi7qg9nhqjb2isldndjkbn4z3jminhn7rp036bc2rp3r6l3iw";
     };
     meta.homepage = "https://github.com/VonHeikemen/lsp-zero.nvim/";
+  };
+
+  #my-mason-lspconfig-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  #  pname = "mason-lspconfig.nvim";
+  #  version = "2023-04-17";
+  #  src = pkgs.fetchFromGitHub {
+  #    owner = "williamboman";
+  #    repo = "mason-lspconfig.nvim";
+  #    rev = "7034065099c1665143091c7282b3b1b8f0b23783";
+  #    sha256 = "1ahw156adi9frh3isad37r48zwy8j7llhyq307c3kxnh3r98iiaa";
+  #  };
+  #  meta.homepage = "https://github.com/williamboman/mason-lspconfig.nvim/";
+  #};
+
+
+  my-nvim-lspconfig = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "nvim-lspconfig";
+    version = "2023-04-16";
+    src = pkgs.fetchFromGitHub {
+      owner = "neovim";
+      repo = "nvim-lspconfig";
+      rev = "eddaef928c1e1dd79a96f5db45f2fd7f2efe7ea0";
+      sha256 = "1gpkmywjlyyx8zmvyxqsrrfyrxsvs42gd442k05nhfv75z077dcf";
+    };
+    meta.homepage = "https://github.com/neovim/nvim-lspconfig/";
   };
 
 in
@@ -42,8 +67,10 @@ in
       vim-nix
       rose-pine
       playground
-      nvim-lspconfig
       cmp-nvim-lsp
+      nvim-cmp
+      luasnip
+      my-nvim-lspconfig
      # (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.javascript p.nix p.haskell p.lua ]))
      # pkgs.vimPlugins.nvim-treesitter.withAllGrammars
       {
@@ -82,15 +109,15 @@ in
         config = builtins.readFile(./neovim/after/plugin/fugitive.lua);
       }
       {
-        plugin = lsp-zero-nvim;
+        plugin = my-lsp-zero-nvim;
         type = "lua";
         config = builtins.readFile(./neovim/after/plugin/lsp.lua);
       }
-      #{
-      #  plugin = nvim-treesitter;
-      #  type = "lua";
-      #  config = builtins.readFile(./neovim/after/plugin/treesitter.lua);
-      #}
+      {
+        plugin = nvim-treesitter;
+        type = "lua";
+        config = builtins.readFile(./neovim/after/plugin/treesitter.lua);
+      }
     ];
   };
 

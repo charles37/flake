@@ -11,7 +11,8 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     
-
+    
+  
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware }: 
@@ -23,6 +24,7 @@
       };
       lib = nixpkgs.lib;
 
+      
     in {
       nixosConfigurations = (
         import ./hosts {

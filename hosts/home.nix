@@ -45,10 +45,16 @@ in
 
     stateVersion = "22.11";
     packages = with pkgs; [
+      rustup
       htop
       alacritty
       signal-desktop-alt
       fix-and-rebuild
+      nodePackages_latest.pyright
+      gcc9
+      rnix-lsp
+      sumneko-lua-language-server
+
     ];
   };
 

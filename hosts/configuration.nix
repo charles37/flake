@@ -126,6 +126,8 @@ in
     ripgrep
     ssh-askpass-fullscreen
     deno
+    lua
+    luajitPackages.lua-lsp
   ];
   
   # Some programs need SUID wrappers, can be configured further or are

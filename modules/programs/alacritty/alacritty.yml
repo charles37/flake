@@ -812,7 +812,7 @@ colors: *RosePine
 # a no-op if you do not wish to receive input characters for that binding.
 
 window:
-  opacity: 0.96
+  opacity: 0.90
 
 key_bindings:
     # (Windows, Linux, and BSD only)
