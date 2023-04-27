@@ -21,6 +21,19 @@ let
       libXcomposite libXext libXfixes libXrender libXtst libXScrnSaver;
 
   };
+  stack-wrapped = pkgs.symlinkJoin {
+    name = "stack";
+    paths = [ pkgs.stack ];
+    buildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/stack \
+        --add-flags "\
+          --nix \
+          --no-nix-pure \
+          --nix-shell-file=nix/stack-integration.nix \
+        "
+    '';
+  };
 in
 {
   imports = 
@@ -33,6 +46,7 @@ in
   home = {
     username = "ben";
     homeDirectory = "/home/ben";
+    stateVersion = "22.11";
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -43,12 +57,11 @@ in
     # the Home Manager release notes for a list of state version
     # changes in each release.
 
-    stateVersion = "22.11";
     packages = with pkgs; [
-      haskell.compiler.ghc925
-      haskellPackages.cabal-install
-      haskellPackages.stack
+      haskell.compiler.ghc927
       haskellPackages.haskell-language-server
+      cabal-install
+      stack-wrapped      
       rustup
       htop
       alacritty
