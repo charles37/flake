@@ -1,4 +1,4 @@
-# Edit this configuration file to define what should be installed on
+# Edit this configuration file to define what should be installed on 
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -7,14 +7,6 @@
 let
   user = "ben";
 
-  #nixpkgsUnstable = import (builtins.fetchTarball {
-  #  # Descriptive name to make the store path easier to identify
-  #  name = "nixos-unstable-2023-04-24";
-  #  # Commit hash for nixos-unstable as of 2018-09-12
-  #  url = "https://github.com/nixos/nixpkgs/archive/2362848adf8def2866fabbffc50462e929d7fffb.tar.gz";
-  #  # Hash obtained using `nix-prefetch-url --unpack <url>`
-  #  sha256 = "0wjr874z2y3hc69slaa7d9cw7rj47r1vmc1ml7dw512jld23pn3p";
-  #}) {};
 in
 
 {
@@ -123,14 +115,23 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  programs.dconf.enable = true;
+
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim_configurable # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     vimPlugins.vim-nix
+    gnome.adwaita-icon-theme
     pulseaudio
     pavucontrol
     wget
+    ripgrep
+    ssh-askpass-fullscreen
+    deno
+    lua
+    luajitPackages.lua-lsp
   ];
   
   # Some programs need SUID wrappers, can be configured further or are
@@ -158,7 +159,7 @@ in
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "nixos-unstable"; # Did you read the comment?
 
 #  Home-Manager module mode
 

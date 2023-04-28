@@ -2,7 +2,7 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/22.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = github:nix-community/home-manager;
@@ -10,7 +10,9 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
+    
+    
+  
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware }: 
@@ -20,8 +22,9 @@
         inherit system;
         config.allowUnfree = true;
       };
-      lib = nixpkgs.lib;
+      lib = nixpkgs.lib; 
 
+      
     in {
       nixosConfigurations = (
         import ./hosts {
