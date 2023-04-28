@@ -60,8 +60,10 @@ in
     packages = with pkgs; [
       haskell.compiler.ghc927
       haskellPackages.haskell-language-server
+      haskellPackages.zlib 
+      postgresql
       cabal-install
-      stack-wrapped      
+      stack
       rustup
       htop
       alacritty
@@ -89,11 +91,14 @@ in
     userEmail = "benprevor@gmail.com";
   };
 
+
   dconf.settings = with lib.hm.gvariant; {
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
       picture-uri = "file://" + ../wallpapers/purple-anime-girl.png;
+      picture-uri-dark = "file://" + ../wallpapers/purple-anime-girl.png;
+ 
     };
   };
 
