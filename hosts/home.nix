@@ -61,7 +61,6 @@ in
       haskell.compiler.ghc927
       haskellPackages.haskell-language-server
       haskellPackages.zlib 
-      postgresql
       cabal-install
       stack
       rustup
@@ -76,7 +75,6 @@ in
 
     ];
   };
-
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
