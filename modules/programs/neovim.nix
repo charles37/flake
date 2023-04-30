@@ -22,18 +22,17 @@ let
     meta.homepage = "https://github.com/VonHeikemen/lsp-zero.nvim/";
   };
 
-  #my-mason-lspconfig-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
-  #  pname = "mason-lspconfig.nvim";
-  #  version = "2023-04-17";
-  #  src = pkgs.fetchFromGitHub {
-  #    owner = "williamboman";
-  #    repo = "mason-lspconfig.nvim";
-  #    rev = "7034065099c1665143091c7282b3b1b8f0b23783";
-  #    sha256 = "1ahw156adi9frh3isad37r48zwy8j7llhyq307c3kxnh3r98iiaa";
-  #  };
-  #  meta.homepage = "https://github.com/williamboman/mason-lspconfig.nvim/";
-  #};
-
+  my-yesod-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "yesod.vim";
+    version = "2022-11-16";
+    src = pkgs.fetchFromGitHub {
+      owner = "alx741";
+      repo = "yesod.vim";
+      rev = "f165031e8875585400046b3171d697374a183699";
+      sha256 = "0h8yvf314kjypxslwsx6yi97pld9bw56mx2f9jngrpapcxnyj346";
+    };
+    meta.homepage = "https://github.com/alx741/yesod.vim";
+  };
 
   my-nvim-lspconfig = pkgs.vimUtils.buildVimPluginFrom2Nix {
     pname = "nvim-lspconfig";
@@ -71,6 +70,7 @@ in
       nvim-cmp
       luasnip
       my-nvim-lspconfig
+      my-yesod-nvim
       haskell-tools-nvim
       plenary-nvim
      # (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.javascript p.nix p.haskell p.lua ]))
@@ -124,35 +124,4 @@ in
   };
 
 }
-
-## Define the askpass.vim plugin derivation
-#  denops-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
-#    pname = "denops.vim";
-#    version = "d7a15615f86830e9464c30f761a3911f619b38b3";
-#    src = pkgs.fetchFromGitHub {
-#      owner = "vim-denops";
-#      repo = "denops.vim";
-#      rev = "d7a15615f86830e9464c30f761a3911f619b38b3";
-#      sha256 = "1rx42099zwf2k21gdipblwjr1ggilsb7fr601p1hvyhrz3xqms6b";
-#    };
-#  };
-#  askpass-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
-#    pname = "askpass-vim";
-#    version = "2022-03-04"; # Version based on the commit date
-#    src = pkgs.fetchFromGitHub {
-#      owner = "lambdalisue";
-#      repo = "askpass.vim";
-#      rev = "aa977b0093424073bd4b4064a90440dec1e4f066"; # Commit hash from nix-prefetch-git
-#      sha256 = "0wckbc7pd8jpimj6gf896gvrgaf7f9nrpa5d729pl3yxagi3yw1p"; # SHA-256 hash from nix-prefetch-git
-#    };
-#    # Disable automatic shebang patching
-#    dontPatchShebangs = true;
-#    # Custom post-patch phase to handle the shebang patching
-#    postPatch = ''
-#      substituteInPlace denops/askpass/cli.ts \
-#        --replace "#!/usr/bin/env -S deno run --no-check --allow-env=ASKPASS_ADDRESS --allow-net=127.0.0.1" \
-#                  "#!${pkgs.deno}/bin/deno run --no-check --allow-env=ASKPASS_ADDRESS --allow-net=127.0.0.1"
-#    '';
-#  };
-
 

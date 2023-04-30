@@ -74,6 +74,7 @@ in
       sumneko-lua-language-server
       purescript
       spago
+      whatsapp-for-linux
 
     ];
   };
