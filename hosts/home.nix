@@ -72,6 +72,8 @@ in
       gcc9
       rnix-lsp
       sumneko-lua-language-server
+      purescript
+      spago
 
     ];
   };
