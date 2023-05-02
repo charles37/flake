@@ -61,7 +61,7 @@ in
       haskell.compiler.ghc927
       haskellPackages.haskell-language-server
       haskellPackages.zlib 
-      cabal-install
+      haskellPackages.Cabal_3_8_1_0
       stack
       rustup
       htop
@@ -75,6 +75,7 @@ in
       purescript
       spago
       whatsapp-for-linux
+      nodejs
 
     ];
   };
