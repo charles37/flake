@@ -74,8 +74,10 @@ in
       sumneko-lua-language-server
       purescript
       spago
+      nodePackages_latest.purescript-language-server
       whatsapp-for-linux
       nodejs
+      docker
 
     ];
   };

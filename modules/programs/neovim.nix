@@ -73,6 +73,7 @@ in
       my-yesod-nvim
       haskell-tools-nvim
       plenary-nvim
+      purescript-vim
      # (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.javascript p.nix p.haskell p.lua ]))
      # pkgs.vimPlugins.nvim-treesitter.withAllGrammars
       {
