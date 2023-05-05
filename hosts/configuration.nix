@@ -124,7 +124,7 @@ in
   users.users.${user}= {
     isNormalUser = true;
     description = "ben";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       firefox
     #  thunderbird
@@ -136,6 +136,8 @@ in
 
   programs.dconf.enable = true;
 
+  #Enable Docker service
+  virtualisation.docker.enable = true; 
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

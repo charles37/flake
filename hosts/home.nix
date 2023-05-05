@@ -58,6 +58,7 @@ in
     # changes in each release.
 
     packages = with pkgs; [
+      microsoft-edge-dev
       haskell.compiler.ghc927
       haskellPackages.haskell-language-server
       haskellPackages.zlib 
@@ -78,6 +79,9 @@ in
       whatsapp-for-linux
       nodejs
       docker
+      elmPackages.elm
+      elmPackages.elm-language-server
+      elmPackages.elm-live
 
     ];
   };
@@ -87,7 +91,7 @@ in
 
   # fix for https://github.com/nix-community/home-manager/issues/3342
   manual.manpages.enable = false; 
-  
+
   # Git Config
   programs.git = {
     enable = true;

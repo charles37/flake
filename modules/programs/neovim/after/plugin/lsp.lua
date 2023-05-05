@@ -4,7 +4,7 @@ local lsp = require('lsp-zero').preset({
 
 lsp.preset("recommended")
 
-lsp.setup_servers({'eslint', 'rnix', 'rust_analyzer', 'lua_ls', 'hls', 'purescriptls'})
+lsp.setup_servers({'eslint', 'rnix', 'rust_analyzer', 'lua_ls', 'hls', 'purescriptls', 'elmls'})
 
 
 --lsp.ensure_installed({

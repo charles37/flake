@@ -67,13 +67,13 @@ in
       rose-pine
       playground
       cmp-nvim-lsp
-      nvim-cmp
       luasnip
       my-nvim-lspconfig
       my-yesod-nvim
       haskell-tools-nvim
       plenary-nvim
       purescript-vim
+      copilot-cmp
      # (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.javascript p.nix p.haskell p.lua ]))
      # pkgs.vimPlugins.nvim-treesitter.withAllGrammars
       {
@@ -121,6 +121,17 @@ in
         type = "lua";
         config = builtins.readFile(./neovim/after/plugin/treesitter.lua);
       }
+      {
+        plugin = copilot-lua;
+        type = "lua";
+        config = builtins.readFile(./neovim/after/plugin/copilot.lua);
+      }
+      {
+        plugin = nvim-cmp;
+        type = "lua";
+        config = builtins.readFile(./neovim/after/plugin/cmp.lua);
+      }
+
     ];
   };
 
