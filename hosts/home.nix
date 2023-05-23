@@ -58,6 +58,7 @@ in
     # changes in each release.
 
     packages = with pkgs; [
+      zoom-us
       microsoft-edge-dev
       haskell.compiler.ghc927
       haskellPackages.haskell-language-server
@@ -82,6 +83,8 @@ in
       elmPackages.elm
       elmPackages.elm-language-server
       elmPackages.elm-live
+      cowsay 
+
 
     ];
   };
