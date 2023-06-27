@@ -71,21 +71,25 @@ in
       signal-desktop-alt
       fix-and-rebuild
       nodePackages_latest.pyright
+      nodePackages_latest.react-native-cli
+      watchman
       gcc9
+      cling
       rnix-lsp
       sumneko-lua-language-server
       purescript
       spago
       nodePackages_latest.purescript-language-server
+      watchman
       whatsapp-for-linux
       nodejs
       docker
       elmPackages.elm
       elmPackages.elm-language-server
       elmPackages.elm-live
-      cowsay 
-
-
+      xclip
+      toml2json
+      jq
     ];
   };
 

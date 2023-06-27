@@ -1,4 +1,4 @@
-# Edit this configuration file to define what should be installed on 
+# Edit this configuration file to define what should be installed on con
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -142,6 +142,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    zulu #Java for React-Native start
     vim_configurable # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     vimPlugins.vim-nix
     gnome.adwaita-icon-theme
@@ -154,6 +155,7 @@ in
     lua
     luajitPackages.lua-lsp
     postgresql
+    androidStudioPackages.dev
   ];
   
   # Some programs need SUID wrappers, can be configured further or are

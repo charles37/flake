@@ -75,6 +75,8 @@ in
       purescript-vim
       nvim-cmp
       copilot-vim
+      codi-vim
+      ghcid
       #copilot-cmp
      # (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.javascript p.nix p.haskell p.lua ]))
      # pkgs.vimPlugins.nvim-treesitter.withAllGrammars
