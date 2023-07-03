@@ -61,9 +61,11 @@ in
       zoom-us
       microsoft-edge-dev
       haskell.compiler.ghc927
-      haskellPackages.haskell-language-server
       haskellPackages.zlib 
+      haskell-language-server
       haskellPackages.Cabal_3_8_1_0
+      cabal-install
+      haskellPackages.ghcid
       stack
       rustup
       htop

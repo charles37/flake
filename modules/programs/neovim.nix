@@ -70,7 +70,6 @@ in
       luasnip
       my-nvim-lspconfig
       my-yesod-nvim
-      haskell-tools-nvim
       plenary-nvim
       purescript-vim
       nvim-cmp
