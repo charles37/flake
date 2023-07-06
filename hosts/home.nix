@@ -58,11 +58,14 @@ in
     # changes in each release.
 
     packages = with pkgs; [
+      zoom-us
+      microsoft-edge-dev
       haskell.compiler.ghc927
-      haskellPackages.haskell-language-server
       haskellPackages.zlib 
-      postgresql
+      haskell-language-server
+      haskellPackages.Cabal_3_8_1_0
       cabal-install
+      haskellPackages.ghcid
       stack
       rustup
       htop
@@ -70,20 +73,34 @@ in
       signal-desktop-alt
       fix-and-rebuild
       nodePackages_latest.pyright
+      nodePackages_latest.react-native-cli
+      watchman
       gcc9
+      cling
       rnix-lsp
       sumneko-lua-language-server
-
+      purescript
+      spago
+      nodePackages_latest.purescript-language-server
+      watchman
+      whatsapp-for-linux
+      nodejs
+      docker
+      elmPackages.elm
+      elmPackages.elm-language-server
+      elmPackages.elm-live
+      xclip
+      toml2json
+      jq
     ];
   };
-
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   # fix for https://github.com/nix-community/home-manager/issues/3342
   manual.manpages.enable = false; 
-  
+
   # Git Config
   programs.git = {
     enable = true;

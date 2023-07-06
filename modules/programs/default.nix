@@ -12,5 +12,6 @@
 
 [
 #  ./alacritty.nix
+   ./tmux.nix
    ./neovim.nix
 ]

@@ -1,4 +1,4 @@
-# Edit this configuration file to define what should be installed on 
+# Edit this configuration file to define what should be installed on con
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -64,6 +64,25 @@ in
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
+ 
+  # Enable postgres Server
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql;
+    enableTCPIP = true;
+    authentication = pkgs.lib.mkOverride 10 ''
+      local all all trust
+      host all all 127.0.0.1/32 trust
+      host all all ::1/128 trust
+    '';
+    initialScript = pkgs.writeText "backend-initScript" ''
+      CREATE ROLE nixcloud WITH LOGIN PASSWORD 'nixcloud' CREATEDB;
+      CREATE DATABASE nixcloud;
+      GRANT ALL PRIVILEGES ON DATABASE nixcloud TO nixcloud;
+    '';
+  };
+
+  
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -105,7 +124,7 @@ in
   users.users.${user}= {
     isNormalUser = true;
     description = "ben";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       firefox
     #  thunderbird
@@ -117,10 +136,13 @@ in
 
   programs.dconf.enable = true;
 
+  #Enable Docker service
+  virtualisation.docker.enable = true; 
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    zulu #Java for React-Native start
     vim_configurable # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     vimPlugins.vim-nix
     gnome.adwaita-icon-theme
@@ -132,6 +154,8 @@ in
     deno
     lua
     luajitPackages.lua-lsp
+    postgresql
+    androidStudioPackages.dev
   ];
   
   # Some programs need SUID wrappers, can be configured further or are
