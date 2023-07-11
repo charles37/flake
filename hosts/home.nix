@@ -60,6 +60,8 @@ in
     packages = with pkgs; [
       zoom-us
       microsoft-edge-dev
+      texlive.combined.scheme-tetex
+      texstudio
       haskell.compiler.ghc927
       haskellPackages.zlib 
       haskell-language-server
