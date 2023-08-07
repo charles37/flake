@@ -46,7 +46,7 @@ in
   home = {
     username = "ben";
     homeDirectory = "/home/ben";
-    stateVersion = "22.11";
+    stateVersion = "23.05";
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -72,7 +72,8 @@ in
       rustup
       htop
       alacritty
-      signal-desktop-alt
+      signal-desktop
+      steam
       fix-and-rebuild
       nodePackages_latest.pyright
       nodePackages_latest.react-native-cli
@@ -86,7 +87,9 @@ in
       nodePackages_latest.purescript-language-server
       watchman
       whatsapp-for-linux
-      nodejs
+      #nodejs
+      nodenv
+      yarn
       docker
       elmPackages.elm
       elmPackages.elm-language-server
@@ -94,11 +97,26 @@ in
       xclip
       toml2json
       jq
+      libpqxx
+      pinentry-gnome
+      #pinentry-curses
+      gnupg
+      python3
     ];
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  
+  services.gpg-agent = {
+    enable = true;
+    pinentryFlavor = "gnome3";
+  };
+
+  programs.gpg = { homedir = "${config.xdg.dataHome}/gnupg"; };
+
+
 
   # fix for https://github.com/nix-community/home-manager/issues/3342
   manual.manpages.enable = false; 

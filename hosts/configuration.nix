@@ -82,7 +82,9 @@ in
     '';
   };
 
-  
+ # https://discourse.nixos.org/t/cant-get-gnupg-to-work-no-pinentry/15373/2
+ # https://git.hrnz.li/Ulli/nixos/commit/156e7034ffa5aecc4097628394cc47d26413a0e7
+  services.dbus.packages = with pkgs; [ gcr xdg-desktop-portal-gnome pipewire ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -135,6 +137,13 @@ in
   nixpkgs.config.allowUnfree = true;
 
   programs.dconf.enable = true;
+
+#  services.pcscd.enable = true;
+#  programs.gnupg = {
+#     enable = true;
+#     pinentryFlavor = "gnome3";
+#     enableSSHSupport = true;
+#  };
 
   #Enable Docker service
   virtualisation.docker.enable = true; 
