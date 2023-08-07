@@ -30,6 +30,12 @@ in
       dates = "montly";
       options = "--delete-older-than 30d";
     };
+    settings.substituters = [ "https://cache.nixos.org/" "https://nix-node.cachix.org/" ];
+    registry."node".to = {
+      type = "github";
+      owner = "andyrichardson";
+      repo = "nix-node";
+    };
   };
 
   # Bootloader.
@@ -136,6 +142,7 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+
   programs.dconf.enable = true;
 
 #  services.pcscd.enable = true;
@@ -165,6 +172,7 @@ in
     luajitPackages.lua-lsp
     postgresql
     androidStudioPackages.dev
+
   ];
   
   # Some programs need SUID wrappers, can be configured further or are

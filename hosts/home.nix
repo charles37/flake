@@ -21,6 +21,7 @@ let
       libXcomposite libXext libXfixes libXrender libXtst libXScrnSaver;
 
   };
+
   stack-wrapped = pkgs.symlinkJoin {
     name = "stack";
     paths = [ pkgs.stack ];
@@ -34,6 +35,16 @@ let
         "
     '';
   };
+
+  customNodejs = pkgs.nodejs.override {
+    enableNpm = true;
+    version = "14.19.1";
+    sha256 = "1ncxpal08rza4ydbwhsmn6v85padll7mrfw38kq9mcqshvfhkbp1";
+  };
+
+
+  
+  
 in
 {
   imports = 
@@ -87,9 +98,6 @@ in
       nodePackages_latest.purescript-language-server
       watchman
       whatsapp-for-linux
-      #nodejs
-      nodenv
-      yarn
       docker
       elmPackages.elm
       elmPackages.elm-language-server
@@ -99,7 +107,6 @@ in
       jq
       libpqxx
       pinentry-gnome
-      #pinentry-curses
       gnupg
       python3
     ];
