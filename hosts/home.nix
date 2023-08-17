@@ -108,6 +108,7 @@ in
       libpqxx
       pinentry-gnome
       gnupg
+      rustycli
       python3
     ];
   };

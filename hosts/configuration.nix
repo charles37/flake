@@ -172,7 +172,7 @@ in
     luajitPackages.lua-lsp
     postgresql
     androidStudioPackages.dev
-
+    chromium
   ];
   
   # Some programs need SUID wrappers, can be configured further or are
