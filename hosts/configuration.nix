@@ -173,6 +173,11 @@ in
     postgresql
     androidStudioPackages.dev
     chromium
+    rust-analyzer
+    rustc
+    cargo
+    rustfmt
+    clippy
 #    unstable.rustycli
   ];
   

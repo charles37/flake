@@ -80,7 +80,6 @@ in
       cabal-install
       haskellPackages.ghcid
       stack
-      rustup
       htop
       alacritty
       signal-desktop
@@ -109,6 +108,7 @@ in
       pinentry-gnome
       gnupg
       python3
+      
     ];
   };
 

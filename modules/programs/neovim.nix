@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, nixpkgs, ... }:
 
 let
   #nixpkgsUnstable = import (builtins.fetchTarball {
@@ -62,6 +62,12 @@ in
       set number relativenumber
       :luafile ./neovim/init.lua
       :luafile ./neovim/after/plugin/colors.lua
+       let $RUST_SRC_PATH = '${pkgs.stdenv.mkDerivation {
+        inherit (pkgs.rustc) src;
+        inherit (pkgs.rustc.src) name;
+        phases = ["unpackPhase" "installPhase"];
+        installPhase = ''cp -r library $out'';
+      }}'
     '';
     plugins = with pkgs.vimPlugins; [
       vim-nix
