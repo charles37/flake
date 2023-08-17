@@ -57,7 +57,7 @@ in
   home = {
     username = "ben";
     homeDirectory = "/home/ben";
-    stateVersion = "23.05";
+    stateVersion = "23.11";
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -108,7 +108,6 @@ in
       libpqxx
       pinentry-gnome
       gnupg
-      rustycli
       python3
     ];
   };
