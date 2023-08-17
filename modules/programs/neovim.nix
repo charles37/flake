@@ -49,6 +49,7 @@ let
 in
 {
 
+
   xdg.configFile.nvim = {
     source = ./neovim;
     recursive = true;
@@ -69,11 +70,13 @@ in
       cmp-nvim-lsp
       luasnip
       my-nvim-lspconfig
+
       my-yesod-nvim
       plenary-nvim
       purescript-vim
       nvim-cmp
       copilot-vim
+      rust-tools-nvim
       codi-vim
       #copilot-cmp
      # (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.javascript p.nix p.haskell p.lua ]))
@@ -127,6 +130,11 @@ in
         plugin = ghcid;
         type = "lua";
         config = builtins.readFile(./neovim/after/plugin/ghcid.lua);
+      }
+      {
+        plugin = my-nvim-lspconfig;
+        type = "lua";
+        config = builtins.readFile(./neovim/after/plugin/lspconfig.lua);
       }
       #{
       #  plugin = copilot-lua;

@@ -6,7 +6,7 @@
 
 let
   user = "ben";
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+#  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in
 
 {
@@ -173,7 +173,7 @@ in
     postgresql
     androidStudioPackages.dev
     chromium
-    unstable.rustycli
+#    unstable.rustycli
   ];
   
   # Some programs need SUID wrappers, can be configured further or are
