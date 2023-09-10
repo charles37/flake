@@ -108,6 +108,7 @@ in
       pinentry-gnome
       gnupg
       python3
+      libreoffice-still
       
     ];
   };

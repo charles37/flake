@@ -4,7 +4,7 @@ local lsp = require('lsp-zero').preset({
 
 lsp.preset("recommended")
 
-lsp.setup_servers({'eslint', 'rnix', 'rust_analyzer', 'lua_ls', 'hls', 'purescriptls', 'elmls'})
+lsp.setup_servers({'eslint', 'html', 'rnix', 'rust_analyzer', 'lua_ls', 'hls', 'purescriptls', 'elmls'})
 
 
 --lsp.ensure_installed({
@@ -18,9 +18,6 @@ lsp.setup_servers({'eslint', 'rnix', 'rust_analyzer', 'lua_ls', 'hls', 'purescri
 
 -- Fix Undefined global 'vim'
 lsp.nvim_workspace()
-
-
-
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
