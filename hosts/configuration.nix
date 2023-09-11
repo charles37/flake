@@ -178,6 +178,7 @@ in
     cargo
     rustfmt
     clippy
+    pkg-config
 #    unstable.rustycli
   ];
   

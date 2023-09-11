@@ -83,7 +83,6 @@ in
       htop
       alacritty
       signal-desktop
-      steam
       fix-and-rebuild
       nodePackages_latest.pyright
       nodePackages_latest.react-native-cli
@@ -109,7 +108,8 @@ in
       gnupg
       python3
       libreoffice-still
-      
+      vscode-langservers-extracted
+      steam
     ];
   };
 
