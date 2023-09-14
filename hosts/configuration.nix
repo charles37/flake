@@ -179,6 +179,9 @@ in
     rustfmt
     clippy
     pkg-config
+    openssl
+    libclang
+    binutils
 #    unstable.rustycli
   ];
   
