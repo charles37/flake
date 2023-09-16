@@ -10,6 +10,9 @@ in
     enable = true;
     clock24 = true;
     extraConfig = ''
+      unbind C-b
+      set-option -g prefix C-Space
+      bind C-Space send-prefix
       set status-bg default 
       set -g mouse on
       set -g @yank_selection_mouse 'clipboard'
@@ -20,9 +23,9 @@ in
     plugins = with pkgs; [
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.yank
-      # modern-tmux-theme
-      # tmuxPlugins.catppuccin
-      # tmuxPlugins.sensible
+      #modern-tmux-theme
+      tmuxPlugins.catppuccin
+      tmuxPlugins.sensible
       tmuxPlugins.vim-tmux-navigator
     ];
 

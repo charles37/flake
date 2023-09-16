@@ -180,8 +180,8 @@ in
     clippy
     pkg-config
     openssl
-    libclang
-    binutils
+    clang
+    clang-tools_9
 #    unstable.rustycli
   ];
   
