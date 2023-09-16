@@ -21,6 +21,7 @@ let
       libXcomposite libXext libXfixes libXrender libXtst libXScrnSaver;
 
   };
+
   stack-wrapped = pkgs.symlinkJoin {
     name = "stack";
     paths = [ pkgs.stack ];
@@ -34,6 +35,16 @@ let
         "
     '';
   };
+
+  customNodejs = pkgs.nodejs.override {
+    enableNpm = true;
+    version = "14.19.1";
+    sha256 = "1ncxpal08rza4ydbwhsmn6v85padll7mrfw38kq9mcqshvfhkbp1";
+  };
+
+
+  
+  
 in
 {
   imports = 
@@ -46,7 +57,7 @@ in
   home = {
     username = "ben";
     homeDirectory = "/home/ben";
-    stateVersion = "22.11";
+    stateVersion = "23.11";
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -58,32 +69,66 @@ in
     # changes in each release.
 
     packages = with pkgs; [
+      zoom-us
+      microsoft-edge-dev
+      texlive.combined.scheme-tetex
+      texstudio
       haskell.compiler.ghc927
-      haskellPackages.haskell-language-server
       haskellPackages.zlib 
-      postgresql
+      haskell-language-server
+      haskellPackages.Cabal_3_8_1_0
       cabal-install
+      haskellPackages.ghcid
       stack
-      rustup
       htop
       alacritty
-      signal-desktop-alt
+      signal-desktop
       fix-and-rebuild
       nodePackages_latest.pyright
+      nodePackages_latest.react-native-cli
+      watchman
       gcc9
+      cling
       rnix-lsp
       sumneko-lua-language-server
-
+      purescript
+      spago
+      nodePackages_latest.purescript-language-server
+      watchman
+      whatsapp-for-linux
+      docker
+      elmPackages.elm
+      elmPackages.elm-language-server
+      elmPackages.elm-live
+      xclip
+      toml2json
+      jq
+      libpqxx
+      pinentry-gnome
+      gnupg
+      python3
+      libreoffice-still
+      vscode-langservers-extracted
+      steam
     ];
   };
-
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  
+  services.gpg-agent = {
+    enable = true;
+    pinentryFlavor = "gnome3";
+  };
+
+  programs.gpg = { homedir = "${config.xdg.dataHome}/gnupg"; };
+
+
+
   # fix for https://github.com/nix-community/home-manager/issues/3342
   manual.manpages.enable = false; 
-  
+
   # Git Config
   programs.git = {
     enable = true;
