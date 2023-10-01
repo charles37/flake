@@ -4,7 +4,7 @@ require'nvim-treesitter.configs'.setup {
   parser_install_dir = "/home/ben/.config/nvim/parsers",
 
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "lua", "javascript", "nix", "haskell", "vim", "query", "elm", "python" },
+  ensure_installed = { "c", "c++", "lua", "javascript", "nix", "haskell", "vim", "query", "elm", "python", "rust" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,

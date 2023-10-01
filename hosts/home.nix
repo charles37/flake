@@ -76,7 +76,6 @@ in
       haskell.compiler.ghc927
       haskellPackages.zlib 
       haskell-language-server
-      haskellPackages.Cabal_3_8_1_0
       cabal-install
       haskellPackages.ghcid
       stack
@@ -85,14 +84,12 @@ in
       signal-desktop
       fix-and-rebuild
       nodePackages_latest.pyright
-      nodePackages_latest.react-native-cli
       watchman
       gcc9
       cling
       rnix-lsp
       sumneko-lua-language-server
       purescript
-      spago
       nodePackages_latest.purescript-language-server
       watchman
       whatsapp-for-linux
@@ -110,6 +107,7 @@ in
       libreoffice-still
       vscode-langservers-extracted
       steam
+      qmk
     ];
   };
 

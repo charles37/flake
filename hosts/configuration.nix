@@ -173,15 +173,16 @@ in
     postgresql
     androidStudioPackages.dev
     chromium
-    rust-analyzer
-    rustc
-    cargo
-    rustfmt
+    #rust-analyzer
+    #rustc
+    #cargo
+    #rustfmt
     clippy
     pkg-config
     openssl
     clang
     clang-tools_9
+    gnumake
 #    unstable.rustycli
   ];
   
