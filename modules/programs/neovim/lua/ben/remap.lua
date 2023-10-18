@@ -42,6 +42,35 @@ vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end)
 -- Ben's custom remaps
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/flake/hosts/home.nix<CR>");
 
+
+
+-- Colemak Mod-DH Movement Remappings for Neovim in Lua
+
+-- 'm' behaves like 'h' (move left)
+--vim.keymap.set("n", "m", "h")
+--vim.keymap.set("v", "m", "h")
+--vim.keymap.set("o", "m", "h")
+--
+---- 'n' behaves like 'j' (move down)
+--vim.keymap.set("n", "n", "j")
+--vim.keymap.set("v", "n", "j")
+--vim.keymap.set("o", "n", "j")
+--
+---- 'e' behaves like 'k' (move up)
+--vim.keymap.set("n", "e", "k")
+--vim.keymap.set("v", "e", "k")
+--vim.keymap.set("o", "e", "k")
+--
+---- 'i' behaves like 'l' (move right)
+--vim.keymap.set("n", "i", "l")
+--vim.keymap.set("v", "i", "l")
+--vim.keymap.set("o", "i", "l")
+--
+---- Remap 't' to enter insert mode
+--vim.keymap.set("n", "t", "i")
+
+
+
 --function goto_last_non_netrw_buffer()
 --  local bufnr = vim.fn.bufnr("#")
 --  local bufname = vim.fn.bufname(bufnr)

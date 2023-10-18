@@ -173,18 +173,22 @@ in
     postgresql
     androidStudioPackages.dev
     chromium
-    #rust-analyzer
-    #rustc
-    #cargo
-    #rustfmt
+    rust-analyzer
+    rustc
+    cargo
+    rustfmt
     clippy
     pkg-config
     openssl
     clang
     clang-tools_9
-    gnumake
 #    unstable.rustycli
   ];
+
+
+  # virtualbox 
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "ben" ];
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

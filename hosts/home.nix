@@ -108,6 +108,9 @@ in
       vscode-langservers-extracted
       steam
       qmk
+      heroku
+      slack
+      wireshark
     ];
   };
 
