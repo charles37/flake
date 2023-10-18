@@ -62,6 +62,36 @@ in
       set number relativenumber
       :luafile ./neovim/init.lua
       :luafile ./neovim/after/plugin/colors.lua
+      " === Colemak Mod-DH Remappings for Neovim/Vim ===
+
+      " Remap movement keys for Colemak Mod-DH layout
+      " In Colemak Mod-DH:
+      " 'm' is where 'h' (left) is in QWERTY
+      " 'n' is where 'j' (down) is in QWERTY
+      " 'e' is where 'k' (up) is in QWERTY
+      " 'i' is where 'l' (right) is in QWERTY
+      noremap m h
+      noremap n j
+      noremap e k
+      noremap i l
+
+      " Apply the same movement remappings for other modes
+      " Visual mode
+      vnoremap m h
+      vnoremap n j
+      vnoremap e k
+      vnoremap i l
+
+      " Operator-pending mode
+      onoremap m h
+      onoremap n j
+      onoremap e k
+      onoremap i l
+
+      " Remap 't' to enter insert mode, since 'i' is now used for moving right
+      noremap t i
+
+
        let $RUST_SRC_PATH = '${pkgs.stdenv.mkDerivation {
         inherit (pkgs.rustc) src;
         inherit (pkgs.rustc.src) name;

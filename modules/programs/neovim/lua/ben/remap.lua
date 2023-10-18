@@ -34,9 +34,76 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
+vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end)
+
+
+-- Ben's custom remaps
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/flake/hosts/home.nix<CR>");
+
+
+
+-- Colemak Mod-DH Movement Remappings for Neovim in Lua
+
+-- 'm' behaves like 'h' (move left)
+--vim.keymap.set("n", "m", "h")
+--vim.keymap.set("v", "m", "h")
+--vim.keymap.set("o", "m", "h")
+--
+---- 'n' behaves like 'j' (move down)
+--vim.keymap.set("n", "n", "j")
+--vim.keymap.set("v", "n", "j")
+--vim.keymap.set("o", "n", "j")
+--
+---- 'e' behaves like 'k' (move up)
+--vim.keymap.set("n", "e", "k")
+--vim.keymap.set("v", "e", "k")
+--vim.keymap.set("o", "e", "k")
+--
+---- 'i' behaves like 'l' (move right)
+--vim.keymap.set("n", "i", "l")
+--vim.keymap.set("v", "i", "l")
+--vim.keymap.set("o", "i", "l")
+--
+---- Remap 't' to enter insert mode
+--vim.keymap.set("n", "t", "i")
+
+
+
+--function goto_last_non_netrw_buffer()
+--  local bufnr = vim.fn.bufnr("#")
+--  local bufname = vim.fn.bufname(bufnr)
+--  print("Alternate buffer number: " .. bufnr)
+--  print("Alternate buffer name: " .. bufname)
+--  --is directory check 
+--  print("Is directory: " .. vim.fn.isdirectory(bufname))
+--  if vim.fn.isdirectory(bufname) == 0 then
+--    vim.api.nvim_set_current_buf(bufnr)
+--  else
+--    for i = 1, vim.fn.bufnr("$") do
+--      print("Buffer number: " .. i)
+--      print("Buffer name: " .. vim.fn.bufname(i))
+--      print("Buffer exists: " .. vim.fn.bufexists(i))
+--      print("Buffer listed: " .. vim.fn.buflisted(i))
+--      print("Is directory: " .. vim.fn.isdirectory(vim.fn.bufname(i)))
+--      print("Is current buffer: " .. vim.fn.bufname(i) == bufname)
+--      if vim.fn.bufexists(i) == 1 then
+--        if vim.fn.buflisted(i) == 1 then 
+--          if vim.fn.isdirectory(vim.fn.bufname(i)) == 0 then
+--            -- check if its the same name as the current buffer 
+--            if vim.fn.bufname(i) ~=  
+--              print("Setting current buffer to: " .. i)
+--              vim.api.nvim_set_current_buf(i)
+--              break
+--            end
+--          end
+--        end
+--      end
+--    end
+--  end
+--end
+--
+--vim.api.nvim_set_keymap('n', '<leader>b', [[<cmd>lua goto_last_non_netrw_buffer()<CR>]], { noremap = true, silent = true })
+
+

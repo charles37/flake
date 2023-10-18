@@ -184,6 +184,11 @@ in
     clang-tools_9
 #    unstable.rustycli
   ];
+
+
+  # virtualbox 
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "ben" ];
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
