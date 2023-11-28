@@ -105,6 +105,8 @@ in
     xkbVariant = "";
   };
 
+  services.mullvad-vpn.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -132,7 +134,7 @@ in
   users.users.${user}= {
     isNormalUser = true;
     description = "ben";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" "adbusers"];
     packages = with pkgs; [
       firefox
     #  thunderbird
@@ -142,9 +144,12 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # adb for android
+  programs.adb.enable = true;
 
   programs.dconf.enable = true;
 
+  programs.wireshark.enable = true;
 #  services.pcscd.enable = true;
 #  programs.gnupg = {
 #     enable = true;
@@ -182,6 +187,9 @@ in
     openssl
     clang
     clang-tools_9
+    wireshark
+    mullvad-vpn
+    protonvpn-gui
 #    unstable.rustycli
   ];
 

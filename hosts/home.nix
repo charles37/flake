@@ -73,7 +73,7 @@ in
       microsoft-edge-dev
       texlive.combined.scheme-tetex
       texstudio
-      haskell.compiler.ghc927
+      haskell.compiler.ghc944
       haskellPackages.zlib 
       haskell-language-server
       cabal-install
@@ -110,7 +110,11 @@ in
       qmk
       heroku
       slack
-      wireshark
+      vial
+      signal-cli
+      mullvad-browser
+      wgnord
+      expressvpn
     ];
   };
 
