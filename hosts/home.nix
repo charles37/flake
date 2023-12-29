@@ -115,6 +115,7 @@ in
       mullvad-browser
       wgnord
       expressvpn
+      idris2
     ];
   };
 
