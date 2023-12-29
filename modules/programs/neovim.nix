@@ -114,6 +114,7 @@ in
       copilot-vim
       rust-tools-nvim
       codi-vim
+      idris2-vim
       #copilot-cmp
      # (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.javascript p.nix p.haskell p.lua ]))
      # pkgs.vimPlugins.nvim-treesitter.withAllGrammars
