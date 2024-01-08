@@ -7,6 +7,7 @@
 let
   user = "ben";
 #  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  apk-mitm-package = import ../customPackages/apk-mitm/default.nix { inherit pkgs; };
 in
 
 {
@@ -160,6 +161,9 @@ in
   #Enable Docker service
   virtualisation.docker.enable = true; 
 
+  #Enable Waydroid service
+  virtualisation.waydroid.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -190,6 +194,8 @@ in
     wireshark
     mullvad-vpn
     protonvpn-gui
+    nodejs_20
+    apk-mitm-package 
 #    unstable.rustycli
   ];
 

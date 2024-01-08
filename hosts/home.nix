@@ -116,6 +116,8 @@ in
       wgnord
       expressvpn
       idris2
+      nodejs_14
+      # customNodejs
     ];
   };
 
