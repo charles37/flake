@@ -39,6 +39,7 @@ in
     };
   };
 
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true; #true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -144,6 +145,11 @@ in
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  
+  nixpkgs.config.permittedInsecurePackages = [
+    "nodejs-14.21.3"
+    "openssl-1.1.1w"
+  ];
 
   # adb for android
   programs.adb.enable = true;
