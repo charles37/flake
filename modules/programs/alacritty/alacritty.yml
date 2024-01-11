@@ -811,8 +811,7 @@ colors: *RosePine
 # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
 # a no-op if you do not wish to receive input characters for that binding.
 
-window:
-  opacity: 0.85
+opacity: 0.85
 
 key_bindings:
     # (Windows, Linux, and BSD only)

@@ -154,7 +154,7 @@ in
   };
 
   home.file = {
-    ".config/alacritty/alacritty.yml".text = builtins.readFile(../modules/programs/alacritty/alacritty.yml);
+    ".config/alacritty/alacritty.toml".text = builtins.readFile(../modules/programs/alacritty/alacritty.toml);
   };
 
 }
