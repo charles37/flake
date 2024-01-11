@@ -73,7 +73,7 @@ in
       microsoft-edge-dev
       texlive.combined.scheme-tetex
       texstudio
-      haskell.compiler.ghc944
+      # haskell.compiler.ghc944
       haskellPackages.zlib 
       haskell-language-server
       cabal-install
@@ -116,6 +116,7 @@ in
       wgnord
       expressvpn
       idris2
+      # customNodejs
     ];
   };
 
@@ -129,7 +130,6 @@ in
   };
 
   programs.gpg = { homedir = "${config.xdg.dataHome}/gnupg"; };
-
 
 
   # fix for https://github.com/nix-community/home-manager/issues/3342
@@ -154,7 +154,7 @@ in
   };
 
   home.file = {
-    ".config/alacritty/alacritty.yml".text = builtins.readFile(../modules/programs/alacritty/alacritty.yml);
+    ".config/alacritty/alacritty.toml".text = builtins.readFile(../modules/programs/alacritty/alacritty.toml);
   };
 
 }

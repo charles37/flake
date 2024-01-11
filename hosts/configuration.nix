@@ -7,13 +7,15 @@
 let
   user = "ben";
 #  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  #apk-mitm-package = import ../customPackages/apk-mitm/default.nix { inherit pkgs; };
 in
 
 {
 
   imports =
-    [ # Include the results of the hardware scan.
+    (import ../modules/rootLevelPrograms) ++ [
       ./hardware-configuration.nix
+      # Include the results of the hardware scan.
     ];
   
 
@@ -37,6 +39,7 @@ in
       repo = "nix-node";
     };
   };
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true; #true;
@@ -143,6 +146,11 @@ in
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  
+  nixpkgs.config.permittedInsecurePackages = [
+    "nodejs-14.21.3"
+    "openssl-1.1.1w"
+  ];
 
   # adb for android
   programs.adb.enable = true;
@@ -159,6 +167,9 @@ in
 
   #Enable Docker service
   virtualisation.docker.enable = true; 
+
+  #Enable Waydroid service
+  virtualisation.waydroid.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -190,6 +201,8 @@ in
     wireshark
     mullvad-vpn
     protonvpn-gui
+    nodejs_20
+    #apk-mitm-package 
 #    unstable.rustycli
   ];
 

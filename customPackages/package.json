@@ -1,0 +1,9 @@
+{
+  "name": "apk-mitm-nix",
+  "version": "1.0.0",
+  "description": "A Nix package for apk-mitm",
+  "dependencies": {
+    "apk-mitm": "latest"
+  }
+}
+
