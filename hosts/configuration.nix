@@ -13,8 +13,9 @@ in
 {
 
   imports =
-    [ # Include the results of the hardware scan.
+    (import ../modules/rootLevelPrograms) ++ [
       ./hardware-configuration.nix
+      # Include the results of the hardware scan.
     ];
   
 

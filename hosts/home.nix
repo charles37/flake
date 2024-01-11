@@ -132,7 +132,6 @@ in
   programs.gpg = { homedir = "${config.xdg.dataHome}/gnupg"; };
 
 
-
   # fix for https://github.com/nix-community/home-manager/issues/3342
   manual.manpages.enable = false; 
 
