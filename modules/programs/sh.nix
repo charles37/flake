@@ -1,10 +1,11 @@
 { config, pkgs, ...}:
-
-{
+let
   myAliases = {
     ll = "ls -l";
     update = "sudo nixos-rebuild switch";
   };
+in
+{
 
   programs.bash = {
     enable = true;
