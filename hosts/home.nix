@@ -73,7 +73,7 @@ in
       microsoft-edge-dev
       texlive.combined.scheme-tetex
       texstudio
-      haskell.compiler.ghc944
+      # haskell.compiler.ghc944
       haskellPackages.zlib 
       haskell-language-server
       cabal-install
@@ -116,7 +116,6 @@ in
       wgnord
       expressvpn
       idris2
-      nodejs_14
       # customNodejs
     ];
   };

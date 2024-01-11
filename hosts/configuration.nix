@@ -7,7 +7,7 @@
 let
   user = "ben";
 #  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-  apk-mitm-package = import ../customPackages/apk-mitm/default.nix { inherit pkgs; };
+  #apk-mitm-package = import ../customPackages/apk-mitm/default.nix { inherit pkgs; };
 in
 
 {
@@ -201,7 +201,7 @@ in
     mullvad-vpn
     protonvpn-gui
     nodejs_20
-    apk-mitm-package 
+    #apk-mitm-package 
 #    unstable.rustycli
   ];
 

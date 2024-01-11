@@ -10,7 +10,9 @@ let
   #  sha256 = "0wjr874z2y3hc69slaa7d9cw7rj47r1vmc1ml7dw512jld23pn3p";
   #}) {};
 
-  my-lsp-zero-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+   
+
+  my-lsp-zero-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "lsp-zero.nvim";
     version = "2023-04-18";
     src = pkgs.fetchFromGitHub {
@@ -22,7 +24,7 @@ let
     meta.homepage = "https://github.com/VonHeikemen/lsp-zero.nvim/";
   };
 
-  my-yesod-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  my-yesod-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "yesod.vim";
     version = "2022-11-16";
     src = pkgs.fetchFromGitHub {
@@ -34,7 +36,7 @@ let
     meta.homepage = "https://github.com/alx741/yesod.vim";
   };
 
-  my-nvim-lspconfig = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  my-nvim-lspconfig = pkgs.vimUtils.buildVimPlugin{
     pname = "nvim-lspconfig";
     version = "2023-04-16";
     src = pkgs.fetchFromGitHub {
