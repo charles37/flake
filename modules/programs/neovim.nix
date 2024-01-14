@@ -117,6 +117,7 @@ in
       rust-tools-nvim
       codi-vim
       idris2-vim
+      hardtime-nvim
       #copilot-cmp
      # (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.javascript p.nix p.haskell p.lua ]))
      # pkgs.vimPlugins.nvim-treesitter.withAllGrammars
