@@ -6,7 +6,7 @@
 
 let
   user = "ben";
-#  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+#  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };confi
   #apk-mitm-package = import ../customPackages/apk-mitm/default.nix { inherit pkgs; };
 in
 
@@ -102,6 +102,10 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  
+  #programs.hyprland.enable = true;
+  
+
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
@@ -171,6 +175,16 @@ in
   #Enable Waydroid service
   virtualisation.waydroid.enable = true;
 
+  nixpkgs.config.packageOverrides = pkgs: {
+    haskellPackages = pkgs.haskellPackages.override {
+      overrides = self: super: {
+        zlib = super.zlib.overrideAttrs (oldAttrs: {
+          configureFlags = oldAttrs.configureFlags ++ [ "--extra-include-dirs=${pkgs.zlib.dev}/include" "--extra-lib-dirs=${pkgs.zlib.out}/lib" ];
+        });
+      };
+    };
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -196,12 +210,17 @@ in
     clippy
     pkg-config
     openssl
-    clang
-    clang-tools_9
     wireshark
     mullvad-vpn
     protonvpn-gui
     nodejs_20
+    cabal-install
+    haskellPackages.zlib
+    zlib
+    zlib.dev 
+    zlib.out 
+    pkg-config
+    libclang
     #apk-mitm-package 
 #    unstable.rustycli
   ];

@@ -6,16 +6,6 @@ lsp.preset("recommended")
 
 lsp.setup_servers({'eslint', 'html', 'rnix', 'rust_analyzer', 'lua_ls', 'hls', 'purescriptls', 'elmls', 'clangd'})
 
-
---lsp.ensure_installed({
---  'tsserver',
---  'rust_analyzer',
---  'rnix',
---  'hls',
---  'eslint',
---  'lua_ls',
---})
-
 -- Fix Undefined global 'vim'
 lsp.nvim_workspace()
 

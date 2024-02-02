@@ -108,6 +108,7 @@ in
       cmp-nvim-lsp
       luasnip
       my-nvim-lspconfig
+      clangd_extensions-nvim
 
       my-yesod-nvim
       plenary-nvim

@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "Ben's NixOS configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -10,9 +10,7 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    
-    
-  
+
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware }: 
