@@ -103,18 +103,17 @@ in
     '';
     plugins = with pkgs.vimPlugins; [
       vim-nix
-      rose-pine
       playground
       cmp-nvim-lsp
       luasnip
       my-nvim-lspconfig
       clangd_extensions-nvim
-
       my-yesod-nvim
       plenary-nvim
       purescript-vim
       nvim-cmp
       copilot-vim
+      #rose-pine
       rust-tools-nvim
       codi-vim
       idris2-vim

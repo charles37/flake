@@ -10,7 +10,6 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware }: 
@@ -21,6 +20,7 @@
         config.allowUnfree = true;
       };
       lib = nixpkgs.lib; 
+
 
       
     in {
