@@ -106,14 +106,14 @@ in
       playground
       cmp-nvim-lsp
       luasnip
-      my-nvim-lspconfig
+      #my-nvim-lspconfig
       clangd_extensions-nvim
       my-yesod-nvim
       plenary-nvim
       purescript-vim
       nvim-cmp
       copilot-vim
-      #rose-pine
+     #rose-pine
       rust-tools-nvim
       codi-vim
       idris2-vim
@@ -157,7 +157,7 @@ in
         config = builtins.readFile(./neovim/after/plugin/fugitive.lua);
       }
       {
-        plugin = my-lsp-zero-nvim;
+        plugin = lsp-zero-nvim;
         type = "lua";
         config = builtins.readFile(./neovim/after/plugin/lsp.lua);
       }
@@ -172,7 +172,7 @@ in
         config = builtins.readFile(./neovim/after/plugin/ghcid.lua);
       }
       {
-        plugin = my-nvim-lspconfig;
+        plugin = nvim-lspconfig;
         type = "lua";
         config = builtins.readFile(./neovim/after/plugin/lspconfig.lua);
       }

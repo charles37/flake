@@ -6,8 +6,9 @@ lsp.preset("recommended")
 
 lsp.setup_servers({'eslint', 'html', 'rnix', 'rust_analyzer', 'lua_ls', 'hls', 'purescriptls', 'elmls', 'clangd'})
 
+
 -- Fix Undefined global 'vim'
-lsp.nvim_workspace()
+-- lsp.nvim_workspace()
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -21,7 +22,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
-lsp.setup_nvim_cmp({
+lsp.setup({
   mapping = cmp_mappings
 })
 
