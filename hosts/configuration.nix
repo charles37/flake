@@ -105,11 +105,10 @@ in
   
   #programs.hyprland.enable = true;
   
-
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
   };
 
   services.mullvad-vpn.enable = true;

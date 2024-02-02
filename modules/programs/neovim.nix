@@ -131,11 +131,11 @@ in
         type = "lua";
         config = builtins.readFile(./neovim/after/plugin/telescope.lua);
       }
-      {
-        plugin = rose-pine;
-        type = "lua";
-        config = builtins.readFile(./neovim/after/plugin/rose-pine.lua);
-      }
+      #{
+      #  plugin = rose-pine;
+      #  type = "lua";
+      #  config = builtins.readFile(./neovim/after/plugin/rose-pine.lua);
+      #}
       {
         plugin = nvim-treesitter;
         type = "lua";
