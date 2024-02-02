@@ -52,7 +52,7 @@ yellow = "#f6c177"
 blue = "#9ccfd8"
 magenta = "#c4a7e7"
 cyan = "#ebbcba"
-white = "#e0def4"
+white = "#c4a7e7"
 
 [colors.bright]
 black = "#6e6a86"
@@ -62,7 +62,7 @@ yellow = "#f6c177"
 blue = "#9ccfd8"
 magenta = "#c4a7e7"
 cyan = "#ebbcba"
-white = "#e0def4"
+white = "#c4a7e7" #changed from "#e0def4"
 
 [colors.dim]
 black = "#6e6a86"

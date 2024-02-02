@@ -46,10 +46,14 @@ in
   imports = 
     (import ../modules/programs); # ++ (import ../modules/services);
 
+ 
+  home.file = {
+    ".config/alacritty/alacritty.toml".text = builtins.readFile(../modules/programs/alacritty/alacritty.toml);
+  };
+
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-
-
+  
   home = {
     username = "ben";
     homeDirectory = "/home/ben";
@@ -66,6 +70,7 @@ in
 
     packages = with pkgs; [
       zoom-us
+      kitty
       microsoft-edge-dev
       texlive.combined.scheme-tetex
       texstudio
@@ -180,8 +185,5 @@ in
     };
   };
 
-  home.file = {
-    ".config/alacritty/alacritty.toml".text = builtins.readFile(../modules/programs/alacritty/alacritty.toml);
-  };
 
 }

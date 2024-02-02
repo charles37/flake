@@ -6,14 +6,14 @@ require("rose-pine").setup({
 
     enable = {
         terminal = true,
-        legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+        legacy_highlights = false, -- Improve compatibility for previous versions of Neovim
         migrations = true, -- Handle deprecated options automatically
     },
 
     styles = {
         bold = true,
         italic = true,
-        transparency = false,
+        transparency = true, --changed
     },
 
     groups = {
@@ -50,6 +50,8 @@ require("rose-pine").setup({
     highlight_groups = {
         Comment = { fg = "foam" },
         VertSplit = { fg = "muted", bg = "muted" },
+        ["@field"] = { fg = 'text' },
+        ["@attribute"] = { fg = 'subtle' },
     },
 
     before_highlight = function(group, highlight, palette)
@@ -70,6 +72,7 @@ vim.cmd("colorscheme rose-pine")
 function ColorMyPencils(color)
 
 	color = color or "rose-pine"
+    print("Coloring my pencils with " .. color)
 	vim.cmd.colorscheme(color)
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
