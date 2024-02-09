@@ -9,10 +9,10 @@
 #           └─ default.nix *
 #               └─ ...
 #
+# ./neovim.nix
+
 
 [
-#  ./alacritty.nix
    ./tmux.nix
-   #./neovim.nix
    ./nixvim.nix
 ]
