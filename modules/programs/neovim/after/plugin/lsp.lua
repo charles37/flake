@@ -4,7 +4,7 @@ local lsp = require('lsp-zero').preset({
 
 lsp.preset("recommended")
 
-lsp.setup_servers({'eslint', 'html', 'rnix', 'rust_analyzer', 'lua_ls', 'hls', 'purescriptls', 'elmls', 'clangd'})
+lsp.setup_servers({'eslint', 'html', 'rnix', 'rust_analyzer', 'lua_ls', 'hls', 'purescriptls', 'elmls', 'ccls'})
 
 
 -- Fix Undefined global 'vim'
@@ -23,7 +23,10 @@ cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
 lsp.setup({
-  mapping = cmp_mappings
+  mapping = cmp_mappings,
+  root_dir = function(fname)
+        return vim.loop.cwd()
+    end,
 })
 
 lsp.set_preferences({

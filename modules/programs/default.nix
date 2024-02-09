@@ -13,5 +13,6 @@
 [
 #  ./alacritty.nix
    ./tmux.nix
-   ./neovim.nix
+   #./neovim.nix
+   ./nixvim.nix
 ]

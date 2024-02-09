@@ -41,10 +41,19 @@ let
     version = "14.19.1";
     sha256 = "1ncxpal08rza4ydbwhsmn6v85padll7mrfw38kq9mcqshvfhkbp1";
   };
+  nixvim = import (builtins.fetchGit {
+    url = "https://github.com/nix-community/nixvim";
+    ref = "main"; # adjust if ever switch to a stable channel
+  });
 in
 {
-  imports = 
-    (import ../modules/programs); # ++ (import ../modules/services);
+  # https://github.com/nix-community/nixvim ] 
+  imports =  
+    [ nixvim.homeManagerModules.nixvim ] ++
+    (import ../modules/programs);
+
+
+    # ++ (import ../modules/services);
 
  
   home.file = {
@@ -116,12 +125,15 @@ in
       wgnord
       expressvpn
       idris2
+      kile
       # customNodejs
     ];
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.nixvim.enable = true;
 
   #hyprland config
   
@@ -155,14 +167,12 @@ in
   #  ];
   #};
 
-  
   services.gpg-agent = {
     enable = true;
     pinentryFlavor = "gnome3";
   };
 
   programs.gpg = { homedir = "${config.xdg.dataHome}/gnupg"; };
-
 
   # fix for https://github.com/nix-community/home-manager/issues/3342
   manual.manpages.enable = false; 

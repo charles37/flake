@@ -10,7 +10,6 @@ let
   #  sha256 = "0wjr874z2y3hc69slaa7d9cw7rj47r1vmc1ml7dw512jld23pn3p";
   #}) {};
 
-   
 
   my-lsp-zero-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "lsp-zero.nvim";
@@ -113,11 +112,12 @@ in
       purescript-vim
       nvim-cmp
       copilot-vim
-     #rose-pine
+      rose-pine
       rust-tools-nvim
       codi-vim
       idris2-vim
       hardtime-nvim
+      vim-ccls
       #copilot-cmp
      # (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.javascript p.nix p.haskell p.lua ]))
      # pkgs.vimPlugins.nvim-treesitter.withAllGrammars
