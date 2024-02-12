@@ -9,6 +9,7 @@ let
   };
 
   lib = nixpkgs.lib;
+  nvim = inputs.nixvim;
 in
 {
   marin = lib.nixosSystem {
@@ -21,7 +22,10 @@ in
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.ben = {
-          imports = [ (import ./home.nix) ]; # ++ [(import ./marin/home.nix)]j
+          imports = [ 
+              (import ./home.nix) 
+              inputs.nixvim.homeManagerModules.nixvim
+            ]; # ++ [(import ./marin/home.nix)]j
         };
       }
     ];

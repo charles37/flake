@@ -222,6 +222,7 @@ in
     libclang
     ccls
     bear
+    sbcl
     #apk-mitm-package 
 #    unstable.rustycli
   ];

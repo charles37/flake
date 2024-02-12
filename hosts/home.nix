@@ -1,4 +1,4 @@
-{ config, lib, pkgs, system, ... }:
+{ config, lib, pkgs, system, nixvim, ... }:
 let
   fix-and-rebuild = (pkgs.writeShellScriptBin "frb" ''
       #!/bin/sh
@@ -41,7 +41,7 @@ let
     version = "14.19.1";
     sha256 = "1ncxpal08rza4ydbwhsmn6v85padll7mrfw38kq9mcqshvfhkbp1";
   };
-  nixvim = pkgs.nixvim;
+  #nixvim = pkgs.nixvim;
   #nixvim = import (builtins.fetchGit {
   #  url = "https://github.com/nix-community/nixvim";
   #  ref = "main"; # adjust if ever switch to a stable channel
@@ -49,9 +49,7 @@ let
 in
 {
   # https://github.com/nix-community/nixvim ] 
-  imports =  
-    [ nixvim.homeManagerModules.nixvim ] ++
-    (import ../modules/programs);
+  imports = (import ../modules/programs);
 
 
     # ++ (import ../modules/services);
@@ -80,6 +78,7 @@ in
 
     packages = with pkgs; [
       zoom-us
+      discord
       kitty
       microsoft-edge-dev
       texlive.combined.scheme-tetex
@@ -97,7 +96,8 @@ in
       watchman
       gcc9
       cling
-      rnix-lsp
+      #rnix-lsp
+      nixd
       sumneko-lua-language-server
       purescript
       nodePackages_latest.purescript-language-server

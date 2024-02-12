@@ -15,4 +15,5 @@
 [
    ./tmux.nix
    ./nixvim.nix
+   #./neovim.nix
 ]
