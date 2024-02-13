@@ -40,8 +40,4 @@
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
 
-  #BENS additions
-
-  hardware.opengl.enable = true; # for hyprland
-  hardware.nvidia.modesetting.enable = true; # for hyprland
 }

@@ -96,21 +96,31 @@ in
   services.dbus.packages = with pkgs; [ gcr xdg-desktop-portal-gnome pipewire ];
 
   # MAYBE remove the above?
+
+
+  programs.sway.enable = true;
+
+
   xdg.portal.enable = true;
-  #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
+    
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  #services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.desktopManager.gnome.enable = true;
 
+  hardware.opengl.enable = true; # for hyprland
+  hardware.nvidia.modesetting.enable = true; # for hyprland
+  #hardware.pulseaudio.enable = true; # for hyprland
   # Configure keymap in X11
-  services.xserver = {
-    xkb.layout = "us";
-    xkb.variant = "";
-  };
+  #services.xserver = {
+  #  xkb.layout = "us";
+  #  xkb.variant = "";
+  #};
 
   services.mullvad-vpn.enable = true;
 
@@ -150,6 +160,8 @@ in
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config.pulseaudio = true;
   
   nixpkgs.config.permittedInsecurePackages = [
     "nodejs-14.21.3"
