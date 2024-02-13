@@ -103,7 +103,7 @@ in
   services.xserver.desktopManager.gnome.enable = true;
 
   # Enable Hyprland 
-  #programs.hyprland.enable = true;
+  # programs.hyprland.enable = true;
   
   # Configure keymap in X11
   services.xserver = {
@@ -223,6 +223,8 @@ in
     ccls
     bear
     sbcl
+    roswell
+    charles
     #apk-mitm-package 
 #    unstable.rustycli
   ];

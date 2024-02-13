@@ -13,18 +13,23 @@ let
 in
 {
   marin = lib.nixosSystem {
-    inherit system;
+    inherit system; 
+    specialArgs = {
+        inherit system; inherit inputs;
+    };
     modules = [ 
       ./configuration.nix 
       ./hardware-configuration.nix 
       nixos-hardware.nixosModules.lenovo-thinkpad-x1-extreme-gen2
       home-manager.nixosModules.home-manager {
+        home-manager.extraSpecialArgs = {
+            inherit inputs;
+        };
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.ben = {
           imports = [ 
               (import ./home.nix) 
-              inputs.nixvim.homeManagerModules.nixvim
             ]; # ++ [(import ./marin/home.nix)]j
         };
       }

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, system, nixvim, ... }:
+{ config, lib, pkgs, system, imports, inputs, ... }:
 let
   fix-and-rebuild = (pkgs.writeShellScriptBin "frb" ''
       #!/bin/sh
@@ -48,24 +48,24 @@ let
   #});
 in
 {
-  # https://github.com/nix-community/nixvim ] 
-  imports = (import ../modules/programs);
-
+  imports = [inputs.nixvim.homeManagerModules.nixvim] ++ (import ../modules/programs);
 
     # ++ (import ../modules/services);
 
- 
   home.file = {
     ".config/alacritty/alacritty.toml".text = builtins.readFile(../modules/programs/alacritty/alacritty.toml);
   };
+ 
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   
+  #home.".config/alacritty/alacritty.toml.text" = builtins.readFile(../modules/programs/alacritty/alacritty.toml);
   home = {
     username = "ben";
     homeDirectory = "/home/ben";
     stateVersion = "23.11";
+
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -75,6 +75,22 @@ in
     # You can update Home Manager without changing this value. See
     # the Home Manager release notes for a list of state version
     # changes in each release.
+
+        # Define the Hyprland configuration file
+    #file = {
+        #".config/hypr/hyprland.conf".text = ''
+        #  decoration {
+        #    shadow_offset = 0 5
+        #    col.shadow = rgba(00000099)
+        #  }
+
+        #  $mod = SUPER
+
+        #  bindm = $mod, mouse:272, movewindow
+        #  bindm = $mod, mouse:273, resizewindow
+        #  bindm = $mod ALT, mouse:272, resizewindow
+        #'';
+    #};
 
     packages = with pkgs; [
       zoom-us
@@ -128,6 +144,14 @@ in
       idris2
       kile
       # customNodejs
+      #HYPRLAND
+      picom
+      rofi
+      waybar
+      wofi
+      swaylock
+      swayidle
+      mako
     ];
   };
 
@@ -135,6 +159,30 @@ in
   programs.home-manager.enable = true;
 
   programs.nixvim.enable = true;
+
+  # Enable Hyprland and set basic options
+  #wayland.windowManager.hyprland = {
+  #  enable = true;
+  #  package = pkgs.hyprland;
+  #  xwayland.enable = true;
+  #  systemd.enable = true; # Optional: For using hyprland-session.target
+  #  
+  #  # Hyprland settings
+  #  settings = {
+  #    decoration = {
+  #      shadow_offset = "0 5";
+  #      "col.shadow" = "rgba(00000099)";
+  #    };
+  #    "$mod" = "SUPER";
+  #    bindm = [
+  #      "$mod, mouse:272, movewindow"
+  #      "$mod, mouse:273, resizewindow"
+  #      "$mod ALT, mouse:272, resizewindow"
+  #    ];
+  #  };
+  #};
+
+
 
   #hyprland config
   
@@ -163,9 +211,9 @@ in
   #        10)
   #    );
   #  };
-  #  plugins = [
-  #    #inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-  #  ];
+  #  plugins = [ ];
+  #  #  inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+  #  #];
   #};
 
   services.gpg-agent = {

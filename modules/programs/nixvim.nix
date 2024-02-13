@@ -63,45 +63,13 @@
         copilot-vim.enable = true;
         cmp-nvim-lsp.enable = true;
         nvim-cmp = {
-
-          #formatting = {
-          #  format = ''
-          #    require("lspkind").cmp_format({
-          #            mode="symbol",
-          #            maxwidth = 50,
-          #            ellipsis_char = "..."
-          #    })
-          #  '';
-          #};
-
           autoEnableSources = true;
-#local cmp_select = {behavior = cmp.SelectBehavior.Select}
-#local cmp_mappings = lsp.defaults.cmp_mappings({
-#  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-#  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-#  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-#  ["<C-Space>"] = cmp.mapping.complete(),
-#})
           mappingPresets = ["insert"];
           preselect = "Item";
 
          
 
 
-          #keymaps = {
-          #    "<C-p>" = "select_prev_item";
-          #    "<C-n>" = "select_next_item";
-          #    "<C-y>" = "confirm";
-          #    "<C-Space>" = "complete";
-          #};
-
-          #snippet = {
-          #  expand.__raw = ''
-          #    function(args)
-          #      require("luasnip").lsp_expand(args.body)
-          #    end
-          #  '';
-          #};
           enable = true;
           sources = [
             {name = "nvim_lsp";}
@@ -117,21 +85,6 @@
         };
         lsp = {
           enable = true;
-#lsp.on_attach(function(client, bufnr)
-#  local opts = {buffer = bufnr, remap = false}
-#  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-#  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-#  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-#  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-#  vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-#  vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-#  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-#  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-#  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-#  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-#end)
-
-
           keymaps = {
             diagnostic = {
               "<leader>vd" = "open_float";
@@ -171,17 +124,12 @@
             hls = {
               enable = true;
             };
-            # TODO add purescript to nixvim lsp 
-            #purescriptls = { 
-            #  enable = true;
-            #};
             elmls = {
               enable = true;
             };
             ccls = {
               enable = true;
             };
-            # Add other servers as needed
           };
         };
       };
