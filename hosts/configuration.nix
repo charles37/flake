@@ -95,6 +95,10 @@ in
  # https://git.hrnz.li/Ulli/nixos/commit/156e7034ffa5aecc4097628394cc47d26413a0e7
   services.dbus.packages = with pkgs; [ gcr xdg-desktop-portal-gnome pipewire ];
 
+  # MAYBE remove the above?
+  xdg.portal.enable = true;
+  #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -102,9 +106,6 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # Enable Hyprland 
-  # programs.hyprland.enable = true;
-  
   # Configure keymap in X11
   services.xserver = {
     xkb.layout = "us";
@@ -126,7 +127,7 @@ in
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -167,6 +168,18 @@ in
 #     pinentryFlavor = "gnome3";
 #     enableSSHSupport = true;
 #  };
+
+  # Enable Hyprland 
+  programs.hyprland = {
+    enable = true;
+    # vvv apparently this is no longer needed vvv
+    #nvidiaPatches = true;
+    xwayland = {
+      enable = true;
+      #enableGpuAcceleration = true;
+    };
+  };
+
 
   #Enable Docker service
   virtualisation.docker.enable = true; 
@@ -227,7 +240,31 @@ in
     charles
     #apk-mitm-package 
 #    unstable.rustycli
+
+    #HYPRLAND
+    #gtk
+    rofi-wayland
+    (pkgs.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      })
+    ) # from https://www.youtube.com/watch?v=61wGzIv12Ds&t=74s
+    mako
+    libnotify
+    bemenu
+    fuzzel
+    tofi
+    swww
+    
+
   ];
+
+  environment.sessionVariables = {
+    #invisible cursor
+    WLR_NO_HARDWARE_CURSORS = "1";
+    # have electron apps use wayland
+    NIXOS_OZONE_WL = "1";
+  };
+
 
 
   # virtualbox 

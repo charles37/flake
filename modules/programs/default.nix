@@ -15,5 +15,6 @@
 [
    ./tmux.nix
    ./nixvim.nix
+   ./hyprland.nix
    #./neovim.nix
 ]

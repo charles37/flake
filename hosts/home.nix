@@ -48,7 +48,10 @@ let
   #});
 in
 {
-  imports = [inputs.nixvim.homeManagerModules.nixvim] ++ (import ../modules/programs);
+  imports = [
+              inputs.nixvim.homeManagerModules.nixvim
+              inputs.hyprland.homeManagerModules.default
+            ] ++ (import ../modules/programs);
 
     # ++ (import ../modules/services);
 
@@ -144,14 +147,6 @@ in
       idris2
       kile
       # customNodejs
-      #HYPRLAND
-      picom
-      rofi
-      waybar
-      wofi
-      swaylock
-      swayidle
-      mako
     ];
   };
 
@@ -234,15 +229,15 @@ in
   };
 
 
-  dconf.settings = with lib.hm.gvariant; {
-    "org/gnome/desktop/background" = {
-      color-shading-type = "solid";
-      picture-options = "zoom";
-      picture-uri = "file://" + ../wallpapers/purple-anime-girl.png;
-      picture-uri-dark = "file://" + ../wallpapers/purple-anime-girl.png;
+  #dconf.settings = with lib.hm.gvariant; {
+  #  "org/gnome/desktop/background" = {
+  #    color-shading-type = "solid";
+  #    picture-options = "zoom";
+  #    picture-uri = "file://" + ../wallpapers/purple-anime-girl.png;
+  #    picture-uri-dark = "file://" + ../wallpapers/purple-anime-girl.png;
  
-    };
-  };
+  #  };
+  #};
 
 
 }
