@@ -1,4 +1,4 @@
-# Edit this configuration file to define what should be installed on con
+
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -11,6 +11,7 @@ let
 in
 
 {
+
 
   imports =
     (import ../modules/rootLevelPrograms) ++ [
@@ -95,16 +96,25 @@ in
  # https://git.hrnz.li/Ulli/nixos/commit/156e7034ffa5aecc4097628394cc47d26413a0e7
   services.dbus.packages = with pkgs; [ gcr xdg-desktop-portal-gnome pipewire ];
 
+
   # MAYBE remove the above?
 
 
-  programs.sway.enable = true;
+  #programs.sway.enable = true;
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal
+    ];
+    configPackages = [ pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal
+    ];
+  };
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
-
+  security.polkit.enable = true;
+  
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
@@ -114,14 +124,39 @@ in
   #services.xserver.desktopManager.gnome.enable = true;
 
   hardware.opengl.enable = true; # for hyprland
-  hardware.nvidia.modesetting.enable = true; # for hyprland
-  #hardware.pulseaudio.enable = true; # for hyprland
-  # Configure keymap in X11
-  #services.xserver = {
-  #  xkb.layout = "us";
-  #  xkb.variant = "";
-  #};
 
+  hardware.nvidia = {
+    # Modesetting is required.
+    modesetting.enable = true;
+
+    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+    powerManagement.enable = false;
+    # Fine-grained power management. Turns off GPU when not in use.
+    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+    powerManagement.finegrained = false;
+
+    # Use the NVidia open source kernel module (not to be confused with the
+    # independent third-party "nouveau" open source driver).
+    # Support is limited to the Turing and later architectures. Full list of 
+    # supported GPUs is at: 
+    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+    # Only available from driver 515.43.04+
+    # Currently alpha-quality/buggy, so false is currently the recommended setting.
+    open = false;
+
+    # Enable the Nvidia settings menu,
+	# accessible via `nvidia-settings`.
+    nvidiaSettings = true;
+
+    # Optionally, you may need to select the appropriate driver version for your specific GPU.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+  ];
+
+  #hardware.pulseaudio.enable = true; # for hyprland
   services.mullvad-vpn.enable = true;
 
   # Enable CUPS to print documents.
@@ -146,6 +181,17 @@ in
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+
+  services.xserver = {
+      enable = true;
+      # Configure keymap in X11
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+      displayManager.lightdm.enable = true;
+      videoDrivers = ["nvidia"];
+    };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user}= {
@@ -254,6 +300,7 @@ in
 #    unstable.rustycli
 
     #HYPRLAND
+    gtk3
     #gtk
     rofi-wayland
     (pkgs.waybar.overrideAttrs (oldAttrs: {
