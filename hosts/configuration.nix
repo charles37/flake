@@ -182,16 +182,16 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  services.xserver = {
-      enable = true;
-      # Configure keymap in X11
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-      displayManager.lightdm.enable = true;
-      videoDrivers = ["nvidia"];
-    };
+  #services.xserver = {
+  #    enable = true;
+  #    # Configure keymap in X11
+  #    xkb = {
+  #      layout = "us";
+  #      variant = "";
+  #    };
+  #    displayManager.lightdm.enable = true;
+  #    videoDrivers = ["nvidia"];
+  #  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user}= {

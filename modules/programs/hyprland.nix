@@ -5,6 +5,7 @@ let
 in with lib; {
     wayland.windowManager.hyprland = {
         enable = true;
+        xwayland.enable = true;
         enableNvidiaPatches = true;
         systemd.enable = true;
         plugins = [

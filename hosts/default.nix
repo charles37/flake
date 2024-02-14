@@ -20,6 +20,7 @@ in
     modules = [ 
       ./configuration.nix 
       ./hardware-configuration.nix 
+      ./greetd.nix
       nixos-hardware.nixosModules.lenovo-thinkpad-x1-extreme-gen2
       home-manager.nixosModules.home-manager {
         home-manager.extraSpecialArgs = {

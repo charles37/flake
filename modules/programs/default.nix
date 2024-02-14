@@ -16,6 +16,5 @@
    ./tmux.nix
    ./nixvim.nix
    ./hyprland.nix
-   ./greetd.nix
    #./neovim.nix
 ]
