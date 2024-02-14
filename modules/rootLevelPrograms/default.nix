@@ -1,6 +1,5 @@
 
 [
    ./sh.nix
-   ./greetd.nix
    #
 ]

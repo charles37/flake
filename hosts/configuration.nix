@@ -296,9 +296,6 @@ in
     sbcl
     roswell
     charles
-    #apk-mitm-package 
-#    unstable.rustycli
-
     #HYPRLAND
     gtk3
     #gtk

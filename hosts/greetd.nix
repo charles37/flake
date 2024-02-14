@@ -11,13 +11,13 @@
         --time \
         --asterisks \
         --user-menu \
-        --cmd hyprland 
+        --cmd Hyprland 
     '';
     };
   };
 
   environment.etc."greetd/environments".text = ''
-   hyprland 
+   Hyprland 
   '';
 }
 
