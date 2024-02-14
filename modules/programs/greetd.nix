@@ -11,7 +11,7 @@
         --time \
         --asterisks \
         --user-menu \
-        --cmd sway
+        --cmd hyprland 
     '';
     };
   };
