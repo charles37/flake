@@ -1,8 +1,10 @@
 # flake
 My Personal NixOS config flake
 
-Optimized for Haskell/Elm/Purescript development
+Just switched to Hyprland
 
-The Neovim cofiguration is an adaptation of thePrimagen's neovim config but fully nixified plugin management. 
+Optimized for Haskell/Elm/Purescript/Rust development
 
-Meant to run on my Lenovo, which doesn't have the best hardware
+The Neovim cofiguration is an adaptation of thePrimagen's neovim config but fully nixified plugin management using nixVim
+
+Meant to run on my Thinkpad, which doesn't have the best hardware
