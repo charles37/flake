@@ -3,6 +3,7 @@
     #enable = true;
     #colorschemes.rose-pine.enable = true;
     config = {
+      clipboard.providers.wl-copy.enable = true;
       options = {
         number = true;
         guicursor = "";

@@ -238,6 +238,7 @@ in
     };
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   #Enable Docker service
   virtualisation.docker.enable = true; 
@@ -273,10 +274,13 @@ in
     postgresql
     androidStudioPackages.dev
     chromium
+    # Rust stuff
     rust-analyzer
     rustc
     cargo
+    cargo-watch
     rustfmt
+    cargo-tarpaulin
     clippy
     pkg-config
     openssl
@@ -298,18 +302,23 @@ in
     charles
     #HYPRLAND
     gtk3
-    #gtk
     rofi-wayland
     (pkgs.waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       })
     ) # from https://www.youtube.com/watch?v=61wGzIv12Ds&t=74s
+    wl-clipboard
     mako
     libnotify
     bemenu
     fuzzel
     tofi
     swww
+    brightnessctl
+
+
+    # qmk
+    vial
     
 
   ];

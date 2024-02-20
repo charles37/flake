@@ -121,6 +121,7 @@ in
     #};
 
     packages = with pkgs; [
+      neofetch
       zoom-us
       discord
       kitty
@@ -172,6 +173,13 @@ in
       idris2
       kile
       # customNodejs
+      #Hyprland
+      grim
+      slurp
+      xfce.thunar
+      flameshot
+      sway-contrib.grimshot
+      
     ];
   };
 
