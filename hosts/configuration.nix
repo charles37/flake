@@ -57,6 +57,8 @@ in
   # Enable networking
   networking.networkmanager.enable = true;
 
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   # Set your time zone.
   time.timeZone = "America/New_York";
 
@@ -157,10 +159,16 @@ in
   ];
 
   #hardware.pulseaudio.enable = true; # for hyprland
-  services.mullvad-vpn.enable = true;
+  # services.mullvad-vpn.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  services.xserver.displayManager.sessionCommands = ''
+    # Start the gnome-keyring-daemon
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+  '';
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -214,6 +222,11 @@ in
     "openssl-1.1.1w"
   ];
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+
+  ];
+
   # adb for android
   programs.adb.enable = true;
 
@@ -259,6 +272,10 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    networkmanager
+    protonvpn-cli_2
+    freerdp
+    xrdp
     zulu #Java for React-Native start
     vim_configurable # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     vimPlugins.vim-nix
@@ -285,7 +302,7 @@ in
     pkg-config
     openssl
     wireshark
-    mullvad-vpn
+    #mullvad-vpn
     protonvpn-gui
     nodejs_20
     cabal-install
@@ -315,10 +332,13 @@ in
     tofi
     swww
     brightnessctl
+    gnome.gnome-keyring
 
 
     # qmk
     vial
+
+
     
 
   ];

@@ -2,16 +2,15 @@
 
 let
   hyprlandPlugins = inputs.hyprland-plugins.packages.${pkgs.system};
-  grimPath = pkgs.grim;
-  slurpPath = pkgs.slurp;
-  grimShotPath = pkgs.sway-contrib.grimshot;
+  
+
 in with lib; {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
     plugins = [
-      hyprlandPlugins.hyprbars
+      #hyprlandPlugins.hyprbars
     ];
     settings = {
       exec-once = [ 
@@ -33,7 +32,6 @@ in with lib; {
         "$mod, A, exec, alacritty"
         "$mod, X, exec, chromium"
         "$mod, C, killactive"
-        ", Print, exec, grimblast copy area"
         "$mod, SPACE, exec, rofi -show drun"
         "$mod SHIFT, S, exec, systemctl suspend"
         "$mod SHIFT, R, exec, systemctl reboot"
@@ -45,10 +43,10 @@ in with lib; {
         # Brightness
         "$mod, F5, exec, brightnessctl -d intel_backlight s 10%-"
         "$mod, F6, exec, brightnessctl -d intel_backlight s +10%"
-        # Screenshots
-        "$mod, P, exec, grimshot save"
-        "$mod SHIFT, P, exec, grimshot copy" 
-        "$mod SHIFT, Print, exec, ${grimShotPath} ~/Pictures/Screenshots/$(date +'%s_grim.png')"
+        ", Print, exec, grimshot --notify save screen ~/Pictures/Screenshots/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')"
+        "$mod, Print, exec, grimshot --notify save area ~/Pictures/Screenshots/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')"
+#        "$mod, Alt, Print, exec, grimshot --notify save active ~/Pictures/Screenshots/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')"
+
         # Additional keybindings for window resizing and movement could be added here
       ] ++ (
         # workspaces and window management
