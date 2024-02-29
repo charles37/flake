@@ -272,6 +272,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    unetbootin # for creating bootable USB drives
     networkmanager
     protonvpn-cli_2
     freerdp
